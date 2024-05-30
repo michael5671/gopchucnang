@@ -5,8 +5,8 @@
 package Login;
 import javax.swing.*;
 import ADMIN.*;
-import static DAO.access_TAIKHOAN.getThongTinKiemTraTaiKhoan;
-
+import Home.*;
+import DAO.*;
 /**
  *
  * @author ADMIN
@@ -128,10 +128,15 @@ public class DangNhapForm extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Hãy điền đầy đủ thông tin đăng nhập!", "Lỗi", JOptionPane.OK_OPTION);
         
         
-        int loaiTK =  getThongTinKiemTraTaiKhoan(username, password);
+        int loaiTK = access_TAIKHOAN.getThongTinKiemTraTaiKhoan(username, password);
         switch(loaiTK){
-            case 0 : 
+            case -1:
                 JOptionPane.showMessageDialog(null, "Không tồn tại thông tin tài khoản phù hợp", "Lỗi xác thực",JOptionPane.OK_OPTION );
+                break;
+            case 0 :
+                User.USERID=access_TAIKHOAN.getMaNV(username);
+                this.dispose();
+                new Home().setVisible(true);
                 break;
             case 1 :
                 GiaoDienAdmin ADMINForm = new GiaoDienAdmin(username);
