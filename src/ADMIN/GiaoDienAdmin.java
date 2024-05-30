@@ -482,8 +482,6 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
             this.dispose();
             loginForm.setVisible(true);
         }
-        else
-            return;
     }//GEN-LAST:event_lbDangXuatMouseClicked
 
     public void changeLabelColor( JPanel panel){

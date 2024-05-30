@@ -1,6 +1,7 @@
 package DAO;
 
 import Data.JDBCConnection;
+import Home.Connect;
 import java.sql.*;
 
 /**
@@ -14,7 +15,7 @@ public class access_TAIKHOAN {
     // 0 là khong co, 1 la ADMIN, 2 la nhan vien
     public static int getThongTinKiemTraTaiKhoan(String username, String password)
     {
-        int loaiTK = 0;
+        int loaiTK = -1;
         Connection conn = new JDBCConnection().getJDBCConnection();
         String query = "SELECT * FROM TAIKHOAN WHERE TENTK = '"+username+"' AND MATKHAU = '"+password+"' ";
         try{
@@ -39,11 +40,24 @@ public class access_TAIKHOAN {
         return loaiTK;
     }
 }
-    
+    public static int getMaNV(String username){
+        String query = "SELECT TIM_MANV(?) FROM DUAL";
+        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(query)){
+            statement.setString(1, username);
+            ResultSet s= statement.executeQuery();
+            if(s.next()){
+                return s.getInt(1);
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e);
+        }
+        return -1;
+    }
     // LAY TEN NHAN VIEN TU TEN TAI KHOAN
     public static String getTenNVfromTenTK( String tenTK )
     {
-        Connection conn = new JDBCConnection().getJDBCConnection();
+        Connection conn = JDBCConnection.getJDBCConnection();
         String query = "SELECT TENNV FROM TAIKHOAN TK, NHANVIEN NV WHERE TK.MANV = NV.MANV AND TENTK = '"+tenTK+"' ";
         String ten ="User";
         try{
@@ -68,4 +82,5 @@ public class access_TAIKHOAN {
         }
         return ten;
     }
+
 }
