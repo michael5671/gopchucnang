@@ -1049,7 +1049,7 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SoTienUngTfKeyTyped
     private void BChamCongHandler(){
-        if(PhieuChamCong.TinhTraNGAYCC(User.USERID, c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR))){
+        if(PhieuChamCong.TinhTrangChamCong(User.USERID, c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR))){
             ChamCongThanhCongLb.setVisible(true);
             BChamCong.setVisible(false);
         }
