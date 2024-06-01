@@ -96,13 +96,21 @@ public class YeuCauNghiPhep {
             statement.setDate(4,new java.sql.Date(NgayBD.getTimeInMillis()));
             statement.setDate(5,new java.sql.Date(NgayKT.getTimeInMillis()));
             statement.setString(6, LyDo);
-            statement.setInt(7, 0);
+            statement.setString(7, "Chờ phê duyệt");
             statement.executeUpdate();
         }catch(SQLException e1){
             System.out.println("Loi"+ e1);
         } 
     }
-    
+    public static void HuyYeuCau(int MaYC){
+        try (Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("BEGIN huy_yeu_cau_nghi_phep(?); END;")){
+            // Thiết lập tham số đầu vào
+            statement.setInt(1, MaYC);
+            statement.execute();
+        } catch (Exception e) {
+            System.err.println("Lỗi khi thực thi stored procedure: " + e.getMessage());
+        }
+    }
     private static String ThemYeuCau = "INSERT INTO YEUCAUNGHIPHEP (MAYCNP, MANV, NGAYGUI,NGAYBD,NGAYKT,GHICHUNP,TRANGTHAINP) VALUES (?, ?, ?,?,?,?,?)";
     private static String MaxYeuCau = "SELECT MAX(MAYCNP) FROM YEUCAUNGHIPHEP";
 }

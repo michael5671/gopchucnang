@@ -17,7 +17,8 @@ import javax.swing.table.TableRowSorter;
  * @author Phuc
  */
 public class Home extends javax.swing.JFrame {
-
+    DefaultTableModel YeuCauNghiPhepTm;
+        DefaultTableModel YeuCauUngLuongTm;
     /**
      * Creates new form HomeCopy
      */
@@ -125,7 +126,6 @@ public class Home extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         SoTienUngTf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        HoSoCaNhanPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1280, 768));
@@ -483,6 +483,19 @@ public class Home extends javax.swing.JFrame {
             }
         ));
         YeuCauNghiPhepTb.setGridColor(new java.awt.Color(255, 255, 255));
+        YeuCauNghiPhepTb.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                YeuCauNghiPhepTbMouseDragged(evt);
+            }
+        });
+        YeuCauNghiPhepTb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                YeuCauNghiPhepTbMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                YeuCauNghiPhepTbMousePressed(evt);
+            }
+        });
         TbChamCong1.setViewportView(YeuCauNghiPhepTb);
 
         TimYeuCauNghiPhepTf.addActionListener(new java.awt.event.ActionListener() {
@@ -562,6 +575,11 @@ public class Home extends javax.swing.JFrame {
             }
         ));
         YeuCauUngLuongTb.setGridColor(new java.awt.Color(255, 255, 255));
+        YeuCauUngLuongTb.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                YeuCauUngLuongTbMouseDragged(evt);
+            }
+        });
         TbChamCong2.setViewportView(YeuCauUngLuongTb);
 
         TimYeuCauUngLuongTf.addActionListener(new java.awt.event.ActionListener() {
@@ -822,19 +840,6 @@ public class Home extends javax.swing.JFrame {
 
         JtpContent.addTab("tab7", YeuCauPanel);
 
-        javax.swing.GroupLayout HoSoCaNhanPanelLayout = new javax.swing.GroupLayout(HoSoCaNhanPanel);
-        HoSoCaNhanPanel.setLayout(HoSoCaNhanPanelLayout);
-        HoSoCaNhanPanelLayout.setHorizontalGroup(
-            HoSoCaNhanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1290, Short.MAX_VALUE)
-        );
-        HoSoCaNhanPanelLayout.setVerticalGroup(
-            HoSoCaNhanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 725, Short.MAX_VALUE)
-        );
-
-        JtpContent.addTab("tab9", HoSoCaNhanPanel);
-
         PnContainer.add(JtpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1290, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -991,6 +996,19 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void GuiYeuCauUngLuongBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuiYeuCauUngLuongBtnActionPerformed
+        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("SELECT tong_yeu_cau_ung_luong_trong_thang(?) AS TONG FROM DUAL")){
+            statement.setInt(1,User.USERID);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                int TongYeuCau = rs.getInt(1);
+                if(TongYeuCau>=2){
+                    JOptionPane.showMessageDialog(this, "Bạn đã gửi đủ 2 yêu cầu trong tháng này", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }catch(Exception e){
+                System.out.println(e);
+        }
         YeuCauTb.setSelectedIndex(3);
         YeuCauCreating=2;
     }//GEN-LAST:event_GuiYeuCauUngLuongBtnActionPerformed
@@ -1013,8 +1031,15 @@ public class Home extends javax.swing.JFrame {
         else if (NgayKetThucChooser.getCalendar()==null){
             JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày kết thúc", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
+        else if(NgayBatDauChooser.getCalendar().compareTo(Calendar.getInstance())<0){
+            JOptionPane.showMessageDialog(this, "Ngày bắt đầu phải lớn hơn ngày hiện tại", "Lỗi", JOptionPane.ERROR_MESSAGE);
+
+        }
+        else if(NgayBatDauChooser.getCalendar().compareTo(NgayKetThucChooser.getCalendar())>0){
+            JOptionPane.showMessageDialog(this, "Ngày bắt đầu phải lớn hơn ngày kết thúc", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
         else{
-            YeuCauNghiPhep.GuiYeuCauNghiPhep(User.USERID, NgayBatDauChooser.getCalendar(), NgayKetThucChooser.getCalendar(), LyDoNghiPhepTa.getText());
+            YeuCauNghiPhep.GuiYeuCauNghiPhep(User.USERID, NgayBatDauChooser.getCalendar(), NgayKetThucChooser.getCalendar(), LyDoNghiPhepTa.getText()+" ");
             JOptionPane.showMessageDialog(this, "Gửi yêu cầu thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
             LyDoNghiPhepTa.setText("");
             NgayBatDauChooser.setDate(null);
@@ -1032,8 +1057,22 @@ public class Home extends javax.swing.JFrame {
         if(SoTienUngTf.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Vui lòng nhập số tiền cần ứng", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
+        
         else{
-            YeuCauUngLuong.GuiYeuCauUngLuong(User.USERID,Integer.parseInt(SoTienUngTf.getText()), LyDoUngLuongTf.getText());
+            try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("SELECT LUONGCB FROM NHANVIEN WHERE MANV=?")){
+            statement.setInt(1,User.USERID);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                int LuongCB = rs.getInt(1);
+                if(LuongCB>(Integer.parseInt(SoTienUngTf.getText())/10)){
+                    JOptionPane.showMessageDialog(this, "Số tiền ứng không được quá 10% mức lương cơ bản. Lương cơ bản của bạn: "+LuongCB, "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }catch(Exception e){
+                System.out.println(e);
+        }
+            YeuCauUngLuong.GuiYeuCauUngLuong(User.USERID,Integer.parseInt(SoTienUngTf.getText()), LyDoUngLuongTf.getText()+" ");
             JOptionPane.showMessageDialog(this, "Gửi yêu cầu thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
             SoTienUngTf.setText("");
             LyDoUngLuongTf.setText("");
@@ -1048,6 +1087,36 @@ public class Home extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_SoTienUngTfKeyTyped
+
+    private void YeuCauNghiPhepTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YeuCauNghiPhepTbMouseClicked
+    }//GEN-LAST:event_YeuCauNghiPhepTbMouseClicked
+
+    private void YeuCauNghiPhepTbMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YeuCauNghiPhepTbMousePressed
+    }//GEN-LAST:event_YeuCauNghiPhepTbMousePressed
+
+    private void YeuCauNghiPhepTbMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YeuCauNghiPhepTbMouseDragged
+        if(YeuCauNghiPhepTm.getValueAt(YeuCauNghiPhepTb.getSelectedRow(),5).toString().compareTo("Chờ phê duyệt")==0)    
+        {
+            int choice = JOptionPane.showConfirmDialog(null, "Bạn có muốn huỷ yêu cầu được chọn ?", "Huỷ yêu cầu", JOptionPane.YES_NO_OPTION);
+            if( choice == JOptionPane.YES_OPTION)
+            {
+                YeuCauNghiPhep.HuyYeuCau(Integer.parseInt(YeuCauNghiPhepTm.getValueAt(YeuCauNghiPhepTb.getSelectedRow(),0).toString()));
+                YeuCauNghiPhepTbHandler();
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_YeuCauNghiPhepTbMouseDragged
+
+    private void YeuCauUngLuongTbMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YeuCauUngLuongTbMouseDragged
+        if(YeuCauUngLuongTm.getValueAt(YeuCauUngLuongTb.getSelectedRow(),4).toString().compareTo("Chờ phê duyệt")==0)    
+        {
+            int choice = JOptionPane.showConfirmDialog(null, "Bạn có muốn huỷ yêu cầu được chọn ?", "Huỷ yêu cầu", JOptionPane.YES_NO_OPTION);
+            if( choice == JOptionPane.YES_OPTION)
+            {
+                YeuCauUngLuong.HuyYeuCau(Integer.parseInt(YeuCauUngLuongTm.getValueAt(YeuCauUngLuongTb.getSelectedRow(),0).toString()));
+                YeuCauUngLuongTbHandler();
+            }
+        }    }//GEN-LAST:event_YeuCauUngLuongTbMouseDragged
     private void BChamCongHandler(){
         if(PhieuChamCong.TinhTrangChamCong(User.USERID, c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR))){
             ChamCongThanhCongLb.setVisible(true);
@@ -1112,8 +1181,8 @@ public class Home extends javax.swing.JFrame {
         ChamCongTb.setModel(defaultTable);
     }
         private void YeuCauNghiPhepTbHandler(){
-        DefaultTableModel defaultTable = new DefaultTableModel();
-        defaultTable.setColumnIdentifiers(new String [] {
+        YeuCauNghiPhepTm = new DefaultTableModel();
+        YeuCauNghiPhepTm.setColumnIdentifiers(new String [] {
         "Mã số", "Ngày gửi","Ngày bắt đầu","Ngày kết thúc","Lý do","Trạng thái"
     });    
         ArrayList<YeuCauNghiPhep> al = YeuCauNghiPhep.getYeuCauNghiPhep();
@@ -1125,15 +1194,15 @@ public class Home extends javax.swing.JFrame {
                 row[3]=y.getNgayKT();
                 row[4]=y.getLyDo();
                 row[5]=y.getTrangThai();
-                defaultTable.addRow(row);
+                YeuCauNghiPhepTm.addRow(row);
             }
-            YeuCauNghiPhepTb.setModel(defaultTable);
+            YeuCauNghiPhepTb.setModel(YeuCauNghiPhepTm);
 
         }
         
 private void YeuCauUngLuongTbHandler() {
-    DefaultTableModel defaultTable = new DefaultTableModel();
-    defaultTable.setColumnIdentifiers(new String[]{
+    YeuCauUngLuongTm = new DefaultTableModel();
+    YeuCauUngLuongTm.setColumnIdentifiers(new String[]{
         "Mã số", "Ngày gửi", "Số tiền ứng", "Ghi chú", "Trạng thái"
     });
 
@@ -1145,29 +1214,12 @@ private void YeuCauUngLuongTbHandler() {
         row[2] = Integer.toString(y.getTienUng()); 
         row[3] = y.getGhiChu();
         row[4] = y.getTrangThai();
-        defaultTable.addRow(row);
+        YeuCauUngLuongTm.addRow(row);
     }
 
-    YeuCauUngLuongTb.setModel(defaultTable);
+    YeuCauUngLuongTb.setModel(YeuCauUngLuongTm);
 }
-private void setLookAndFeel(){
-            try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-}
+
 
     /**
      * @param args the command line arguments
@@ -1221,7 +1273,6 @@ private void setLookAndFeel(){
     private javax.swing.JButton GuiYeuCauUngLuongBtn;
     private javax.swing.JPanel GuiYeuCauUngLuongPanel;
     private javax.swing.JPanel Header;
-    private javax.swing.JPanel HoSoCaNhanPanel;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JButton HuyGuiYeuCauBtn1;
     private javax.swing.JButton HuyGuiYeuCauBtn2;

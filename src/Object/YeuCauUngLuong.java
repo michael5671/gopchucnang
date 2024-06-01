@@ -94,13 +94,22 @@ public class YeuCauUngLuong {
             statement.setDate(3,currentDate);
             statement.setInt(4,Money);
             statement.setString(5,LyDo);
-            statement.setString(6, "Chưa phê duyệt");
+            statement.setString(6, "Chờ phê duyệt");
             statement.executeUpdate();
         }catch(SQLException e1){
             System.out.println("Loi"+ e1);
         } 
     }
     
+        public static void HuyYeuCau(int MaYC){
+        try (Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("BEGIN huy_yeu_cau_ung_luong(?); END;")){
+            // Thiết lập tham số đầu vào
+            statement.setInt(1, MaYC);
+            statement.execute();
+        } catch (Exception e) {
+            System.err.println("Lỗi khi thực thi stored procedure: " + e.getMessage());
+        }
+    }
     private static String ThemYeuCau = "INSERT INTO YEUCAUUNGLUONG (MAYCUL, MANV, NGAYUL,TIENUL,GHICHUUL,TRANGTHAIUL) VALUES (?, ?, ?,?,?,?)";
     private static String MaxYeuCau = "SELECT MAX(MAYCUL) FROM YEUCAUUNGLUONG";
 }
