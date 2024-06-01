@@ -73,24 +73,51 @@ public class PhieuChamCong {
         }
         return al;
     }
-        public static ArrayList<PhieuChamCong> getAllPhieuChamCong()
+     public static ArrayList<PhieuChamCong> getPhieuChamCong(int MaKC,int Thang,int Nam)
     {
         
-        ArrayList<PhieuChamCong> al = new ArrayList<>();
-        String sql = "SELECT * FROM PHIEUCHAMCONG";
-        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
-            ResultSet rs= statement.executeQuery();
-            while(rs.next()){
-                al.add(new PhieuChamCong(rs.getInt(1),rs.getInt(2),rs.getObject("NGAYCC", java.sql.Date.class).toLocalDate()));
-            }
-            con.close();
-            statement.close();
-            }catch(SQLException e1){
-            System.out.println("Loi"+ e1);
+            ArrayList<PhieuChamCong> al = new ArrayList<>();
+
+        String sql = "SELECT * FROM PHIEUCHAMCONG WHERE 1=1";
+        if (MaKC != 0) {
+            sql = sql.concat(" AND MAPHIEU = " + MaKC); //
         }
-        return al;
+        if (Thang != 0) {
+            sql = sql.concat(" AND EXTRACT(MONTH FROM NGAYCC) = " + Thang);
+        }
+        if (Nam != 0) {
+            sql = sql.concat(" AND EXTRACT(YEAR FROM NGAYCC) = " + Nam);
+        }
+            try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
+                ResultSet rs= statement.executeQuery();
+                while(rs.next()){
+                    al.add(new PhieuChamCong(rs.getInt(1),rs.getInt(2),rs.getObject("NGAYCC", java.sql.Date.class).toLocalDate()));
+                }
+                con.close();
+                statement.close();
+                }catch(SQLException e1){
+                System.out.println("Loi"+ e1);
+            }
+            return al;
+        }
+            public static ArrayList<PhieuChamCong> getAllPhieuChamCong()
+        {
+
+            ArrayList<PhieuChamCong> al = new ArrayList<>();
+            String sql = "SELECT * FROM PHIEUCHAMCONG";
+            try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
+                ResultSet rs= statement.executeQuery();
+                while(rs.next()){
+                    al.add(new PhieuChamCong(rs.getInt(1),rs.getInt(2),rs.getObject("NGAYCC", java.sql.Date.class).toLocalDate()));
+                }
+                con.close();
+                statement.close();
+                }catch(SQLException e1){
+                System.out.println("Loi"+ e1);
+            }
+            return al;
     }
-    public static boolean TinhTraNGAYCC(int MaNV,int Ngay,int Thang, int Nam){
+    public static boolean TinhTrangChamCong(int MaNV,int Ngay,int Thang, int Nam){
         try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(TinhTrangQuery)){
             statement.setInt(1,MaNV);
             statement.setInt(2,Ngay);
@@ -102,6 +129,16 @@ public class PhieuChamCong {
             System.out.println("Loi"+ e1);
         }
         return false;
+    }
+        public static void XoaPhieu(int MaPhieu){
+        String sql= "DELETE FROM PHIEUCHAMCONG WHERE MAPHIEU = ?";
+        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
+            statement.setInt(1,MaPhieu);
+            statement.executeUpdate();
+        }catch(SQLException e1){
+            System.out.println("Loi"+ e1);
+        }        
+
     }
     public static void ChamCongHomNay(int MaNV){
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
