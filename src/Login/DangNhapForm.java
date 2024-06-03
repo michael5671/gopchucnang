@@ -29,14 +29,19 @@ public class DangNhapForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         lbID = new javax.swing.JLabel();
         lbPass = new javax.swing.JLabel();
         lbLogin = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
         txtUsername = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/loginIcon.png"))); // NOI18N
+        jLabel1.setText("ádasdasdasd");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Đăng nhập");
@@ -46,6 +51,31 @@ public class DangNhapForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
         jPanel1.setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(51, 123, 186));
+        jPanel2.setMinimumSize(new java.awt.Dimension(400, 500));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/loginIcon2.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(237, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 410, 667);
 
         lbID.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lbID.setText("Tên đăng nhập");
@@ -59,7 +89,7 @@ public class DangNhapForm extends javax.swing.JFrame {
 
         lbLogin.setBackground(new java.awt.Color(255, 255, 255));
         lbLogin.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lbLogin.setForeground(new java.awt.Color(0, 0, 142));
+        lbLogin.setForeground(new java.awt.Color(51, 123, 186));
         lbLogin.setText("ĐĂNG NHẬP");
         jPanel1.add(lbLogin);
         lbLogin.setBounds(520, 70, 150, 32);
@@ -70,7 +100,7 @@ public class DangNhapForm extends javax.swing.JFrame {
         jPanel1.add(txtUsername);
         txtUsername.setBounds(470, 170, 250, 30);
 
-        btnLogin.setBackground(new java.awt.Color(0, 0, 142));
+        btnLogin.setBackground(new java.awt.Color(51, 123, 186));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Đăng nhập");
@@ -81,23 +111,6 @@ public class DangNhapForm extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin);
         btnLogin.setBounds(530, 320, 140, 30);
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 142));
-        jPanel2.setMinimumSize(new java.awt.Dimension(400, 500));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 400, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,6 +197,8 @@ public class DangNhapForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbID;

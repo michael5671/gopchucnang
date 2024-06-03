@@ -7,6 +7,7 @@ package ADMIN;
 import static DTA.access_NHANVIEN.getNHANVIEN;
 import DTO.NHANVIEN;
 import Data.JDBCConnection;
+import Home.Connect;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 /**
@@ -24,10 +26,12 @@ import java.text.SimpleDateFormat;
  */
 public class QLNVForm extends javax.swing.JPanel {
     Connection con = null;
+    String[] ListPB;
     /**
      * Creates new form QLNVForm
      */
     public QLNVForm() {
+        ListPBHandle();
         initComponents();
         initDSNV();
         con = JDBCConnection.getJDBCConnection();
@@ -299,7 +303,6 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel73.setForeground(new java.awt.Color(153, 153, 153));
         jLabel73.setText("Lương cơ bản");
 
-        txtTenNV.setBackground(new java.awt.Color(255, 255, 255));
         txtTenNV.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtTenNV.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -311,7 +314,6 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel75.setForeground(new java.awt.Color(153, 153, 153));
         jLabel75.setText("Ngày sinh");
 
-        txtCCCD.setBackground(new java.awt.Color(255, 255, 255));
         txtCCCD.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtCCCD.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -323,7 +325,6 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel77.setForeground(new java.awt.Color(153, 153, 153));
         jLabel77.setText("Quê quán");
 
-        txtQueQuan.setBackground(new java.awt.Color(255, 255, 255));
         txtQueQuan.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtQueQuan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
         txtQueQuan.addActionListener(new java.awt.event.ActionListener() {
@@ -336,7 +337,6 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel78.setForeground(new java.awt.Color(153, 153, 153));
         jLabel78.setText("Hệ số lương");
 
-        txtHeSo.setBackground(new java.awt.Color(255, 255, 255));
         txtHeSo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtHeSo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -348,7 +348,6 @@ public class QLNVForm extends javax.swing.JPanel {
             }
         });
 
-        txtLuongCB.setBackground(new java.awt.Color(255, 255, 255));
         txtLuongCB.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtLuongCB.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -358,7 +357,12 @@ public class QLNVForm extends javax.swing.JPanel {
         txtChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn chức vụ", "Trưởng phòng", "Nhân viên", "Thư ký", "Trợ lý" }));
 
         txtMaPB.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        txtMaPB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn phòng ban", "PB01", "PB02", "PB03", "PB04", " " }));
+        txtMaPB.setModel(new javax.swing.DefaultComboBoxModel<>(ListPB));
+        txtMaPB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaPBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout p1_AddPaneLayout = new javax.swing.GroupLayout(p1_AddPane);
         p1_AddPane.setLayout(p1_AddPaneLayout);
@@ -395,7 +399,7 @@ public class QLNVForm extends javax.swing.JPanel {
                             .addComponent(checkGioiTinh, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTenNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(98, Short.MAX_VALUE))
+                        .addContainerGap(195, Short.MAX_VALUE))
                     .addGroup(p1_AddPaneLayout.createSequentialGroup()
                         .addGroup(p1_AddPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -519,7 +523,6 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel83.setForeground(new java.awt.Color(153, 153, 153));
         jLabel83.setText("Lương cơ bản");
 
-        txtQueQuan1.setBackground(new java.awt.Color(255, 255, 255));
         txtQueQuan1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtQueQuan1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -543,19 +546,15 @@ public class QLNVForm extends javax.swing.JPanel {
         jLabel88.setForeground(new java.awt.Color(153, 153, 153));
         jLabel88.setText("Hệ số lương");
 
-        txtCCCD1.setBackground(new java.awt.Color(255, 255, 255));
         txtCCCD1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtCCCD1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
-        txtLuongCB1.setBackground(new java.awt.Color(255, 255, 255));
         txtLuongCB1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtLuongCB1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
-        txtMaNV1.setBackground(new java.awt.Color(255, 255, 255));
         txtMaNV1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtMaNV1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
-        txtTenNV1.setBackground(new java.awt.Color(255, 255, 255));
         txtTenNV1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtTenNV1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
         txtTenNV1.addActionListener(new java.awt.event.ActionListener() {
@@ -565,7 +564,7 @@ public class QLNVForm extends javax.swing.JPanel {
         });
 
         txtMaPB1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        txtMaPB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn phòng ban", "PB01", "PB02", "PB03", "PB04", " " }));
+        txtMaPB1.setModel(new javax.swing.DefaultComboBoxModel<>(ListPB));
 
         txtChucVu1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtChucVu1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn chức vụ", "Trưởng phòng", "Nhân viên", "Thư ký", "Trợ lý" }));
@@ -578,7 +577,6 @@ public class QLNVForm extends javax.swing.JPanel {
             }
         });
 
-        txtHeSo1.setBackground(new java.awt.Color(255, 255, 255));
         txtHeSo1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtHeSo1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -620,7 +618,7 @@ public class QLNVForm extends javax.swing.JPanel {
                                 .addComponent(txtQueQuan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                                 .addComponent(txtCCCD1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtTenNV1, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(169, Short.MAX_VALUE))
+                        .addContainerGap(266, Short.MAX_VALUE))
                     .addGroup(p1_UpdatePaneLayout.createSequentialGroup()
                         .addGroup(p1_UpdatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(checkGioiTinh1)
@@ -689,8 +687,8 @@ public class QLNVForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        p1.setVisible(false);
+        ListPBHandle();
+        txtMaPB.setModel(new javax.swing.DefaultComboBoxModel<>(ListPB));        p1.setVisible(false);
         p1_AddPane.setVisible(true);
         p1_UpdatePane.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -711,7 +709,10 @@ public class QLNVForm extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // Kiểm tra xem có hàng nào được chọn trong bảng không
+        ListPBHandle();
+        txtMaPB1.setModel(new javax.swing.DefaultComboBoxModel<>(ListPB));
+
+// Kiểm tra xem có hàng nào được chọn trong bảng không
         int selectedRow = tableNV.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn một nhân viên để sửa.");
@@ -899,6 +900,10 @@ public class QLNVForm extends javax.swing.JPanel {
     private void checkGioiTinh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGioiTinh1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkGioiTinh1ActionPerformed
+
+    private void txtMaPBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaPBActionPerformed
     /*
     void reset() {
     txtMaPB1.setText(""); // MAPB
@@ -917,6 +922,22 @@ public class QLNVForm extends javax.swing.JPanel {
     }
     private void onLeaveClick(JPanel panel){
         panel.setBackground(new Color(0,0,51));
+    }
+    private void ListPBHandle(){
+        List<String> stockList = new ArrayList<String>();
+        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("SELECT MAPB FROM PHONGBAN")){
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                stockList.add(rs.getString(1));
+            }
+            ListPB = new String[stockList.size()];
+            for(int i =0 ; i<stockList.size();i++){
+                ListPB[i]=stockList.get(i);
+            }
+        }catch(SQLException e1){
+            System.out.println("Loi"+ e1);
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

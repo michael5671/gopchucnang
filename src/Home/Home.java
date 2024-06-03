@@ -1017,6 +1017,8 @@ public class Home extends javax.swing.JFrame {
         PhieuChamCong.ChamCongHomNay(User.USERID);
             ChamCongThanhCongLb.setVisible(true);
             BChamCong.setVisible(false);
+                    ChamCongHandler();
+
     }//GEN-LAST:event_BChamCongActionPerformed
 
     private void HuyGuiYeuCauBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HuyGuiYeuCauBtn1ActionPerformed
@@ -1064,7 +1066,8 @@ public class Home extends javax.swing.JFrame {
             ResultSet rs = statement.executeQuery();
             if(rs.next()){
                 int LuongCB = rs.getInt(1);
-                if(LuongCB>(Integer.parseInt(SoTienUngTf.getText())/10)){
+                System.out.println((SoTienUngTf.getText())+"va"+LuongCB);
+                if((LuongCB/10)<(Integer.parseInt(SoTienUngTf.getText()))){
                     JOptionPane.showMessageDialog(this, "Số tiền ứng không được quá 10% mức lương cơ bản. Lương cơ bản của bạn: "+LuongCB, "Lỗi", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -1174,7 +1177,7 @@ public class Home extends javax.swing.JFrame {
         ArrayList<PhieuChamCong> al = PhieuChamCong.getPhieuChamCong();
         for(PhieuChamCong p: al){
             String[] row = new String[2];
-            row[0]=Integer.toString(p.getMaPhieu());
+            row[0]=Integer.toString(p.getMAPCC());
             row[1]=p.getNgay()+"/"+p.getThang()+"/"+p.getNam();
             defaultTable.addRow(row);
         }
