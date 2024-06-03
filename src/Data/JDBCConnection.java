@@ -12,7 +12,7 @@ public class JDBCConnection {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con= DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:orcl","c##doanck","a");
+                    "jdbc:oracle:thin:@localhost:1521:orcl","phucdeptrai5","123456");
             con.setAutoCommit(true);
         }
         catch (Exception e){
