@@ -187,5 +187,7 @@ public class NHANVIEN {
         this.heSo = heSo;
     }
     
-    
+    public double tinhLuongNgay() {
+        return (luongCB * heSo) / 25;
+    }
 }

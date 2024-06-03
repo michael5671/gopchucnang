@@ -10,9 +10,9 @@ public class JDBCConnection {
     public static Connection getJDBCConnection(){
         Connection con = null;
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName("oracle.jdbc.OracleDriver");
             con= DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:orcl","phucdeptrai5","123456");
+                    "jdbc:oracle:thin:@localhost:1521:orcl","c##doanck","a");
             con.setAutoCommit(true);
         }
         catch (Exception e){
