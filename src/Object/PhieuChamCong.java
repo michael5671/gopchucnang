@@ -17,20 +17,20 @@ import java.sql.PreparedStatement;
  * @author Phuc
  */
 public class PhieuChamCong {
-    private int MaPhieu,MaNV;
+    private int MAPCC,MaNV;
     private LocalDate TGChamCong;
-    public PhieuChamCong(int MaPhieu, int MaNV, LocalDate TGChamCong) {
-        this.MaPhieu = MaPhieu;
+    public PhieuChamCong(int MAPCC, int MaNV, LocalDate TGChamCong) {
+        this.MAPCC = MAPCC;
         this.MaNV = MaNV;
         this.TGChamCong = TGChamCong;
     }
 
-    public int getMaPhieu() {
-        return MaPhieu;
+    public int getMAPCC() {
+        return MAPCC;
     }
 
-    public void setMaPhieu(int MaPhieu) {
-        this.MaPhieu = MaPhieu;
+    public void setMAPCC(int MAPCC) {
+        this.MAPCC = MAPCC;
     }
 
     public int getMaNV() {
@@ -80,7 +80,7 @@ public class PhieuChamCong {
 
         String sql = "SELECT * FROM PHIEUCHAMCONG WHERE 1=1";
         if (MaKC != 0) {
-            sql = sql.concat(" AND MAPHIEU = " + MaKC); //
+            sql = sql.concat(" AND MAPCC = " + MaKC); //
         }
         if (Thang != 0) {
             sql = sql.concat(" AND EXTRACT(MONTH FROM NGAYCC) = " + Thang);
@@ -130,10 +130,10 @@ public class PhieuChamCong {
         }
         return false;
     }
-        public static void XoaPhieu(int MaPhieu){
-        String sql= "DELETE FROM PHIEUCHAMCONG WHERE MAPHIEU = ?";
+        public static void XoaPhieu(int MAPCC){
+        String sql= "DELETE FROM PHIEUCHAMCONG WHERE MAPCC = ?";
         try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
-            statement.setInt(1,MaPhieu);
+            statement.setInt(1,MAPCC);
             statement.executeUpdate();
         }catch(SQLException e1){
             System.out.println("Loi"+ e1);
@@ -141,27 +141,14 @@ public class PhieuChamCong {
 
     }
     public static void ChamCongHomNay(int MaNV){
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
-        java.sql.Date currentDate = new java.sql.Date(calendar.getTimeInMillis());
-        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(ThemPhieu)){
-            int newMaPhieu;
-            try (PreparedStatement pstmtMax = con.prepareStatement(MaxMaPhieu);
-                 ResultSet rs = pstmtMax.executeQuery()) {
-                if (rs.next()) {
-                    newMaPhieu =  rs.getInt(1) + 1;
-                } else {
-                    newMaPhieu = 1;
-                }
-            } 
-            statement.setInt(1,newMaPhieu);
-            statement.setInt(2,MaNV);
-            statement.setDate(3,currentDate);
+        try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement("call them_phieu_cham_cong(?)")){
+            statement.setInt(1,MaNV);
             statement.executeUpdate();
         }catch(SQLException e1){
             System.out.println("Loi"+ e1);
-        }        
+        }
     }
     private static String TinhTrangQuery = "SELECT * FROM PHIEUCHAMCONG WHERE MANV=? AND EXTRACT(DAY FROM NGAYCC) = ? AND EXTRACT(MONTH FROM NGAYCC) = ? AND EXTRACT(YEAR FROM NGAYCC) = ?";
     private static String ThemPhieu = "INSERT INTO PHIEUCHAMCONG (MAPCC, MANV, NGAYCC) VALUES (?, ?, ?)";
-    private static String MaxMaPhieu = "SELECT MAX(MAPCC) FROM PHIEUCHAMCONG";
+    private static String MaxMAPCC = "SELECT MAX(MAPCC) FROM PHIEUCHAMCONG";
 }

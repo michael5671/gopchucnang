@@ -245,7 +245,7 @@ public class QLCCForm extends javax.swing.JPanel {
         ArrayList<PhieuChamCong> al =PhieuChamCong.getPhieuChamCong(MaKC, Thang, Nam);
         al.stream().map(p -> {
             String[] row = new String[3];
-            row[0]=Integer.toString(p.getMaPhieu());
+            row[0]=Integer.toString(p.getMAPCC());
             row[1]=Integer.toString(p.getMaNV());
             row[2]=p.getNgay()+"/"+p.getThang()+"/"+p.getNam();
             return row;
@@ -318,7 +318,7 @@ public class QLCCForm extends javax.swing.JPanel {
         ArrayList<PhieuChamCong> al = PhieuChamCong.getAllPhieuChamCong();
         al.stream().map(p -> {
             String[] row = new String[3];
-            row[0]=Integer.toString(p.getMaPhieu());
+            row[0]=Integer.toString(p.getMAPCC());
             row[1]=Integer.toString(p.getMaNV());
             row[2]=p.getNgay()+"/"+p.getThang()+"/"+p.getNam();
             return row;
