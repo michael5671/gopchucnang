@@ -314,7 +314,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="UI.ScrollPaneWin11" name="scrollpanel">
+        <Container class="Component.ScrollPaneWin11" name="scrollpanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -323,7 +323,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="UI.myTable" name="DsPB3">
+            <Component class="Component.myTable" name="DsPB3">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="6">
@@ -682,11 +682,11 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submidActionPerformed"/>
           </Events>
         </Component>
-        <Container class="UI.ScrollPaneWin11" name="scrollPaneWin111">
+        <Container class="Component.ScrollPaneWin11" name="scrollPaneWin111">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="UI.myTable" name="DsPB">
+            <Component class="Component.myTable" name="DsPB">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">
@@ -885,7 +885,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeletesubmidActionPerformed"/>
           </Events>
         </Component>
-        <Container class="UI.ScrollPaneWin11" name="scrollPaneWin112">
+        <Container class="Component.ScrollPaneWin11" name="scrollPaneWin112">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -894,7 +894,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="UI.myTable" name="DsPB1">
+            <Component class="Component.myTable" name="DsPB1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">

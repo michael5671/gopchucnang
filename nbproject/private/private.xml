@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/QLYCULForm.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/QLTCForm.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/Data/JDBCConnection.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/Dashboard.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/ChamCong.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/DAO/access_PHONGBAN.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/QLPBForm.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/Home/Connect.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/Home/Home.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/DAO/access_YEUCAUUNGLUONG.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/DAO/access_TAIKHOAN.java</file>
-            <file>file:/C:/Users/giaphu/Documents/GitHub/gopchucnang/src/ADMIN/TinhLuongForm.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

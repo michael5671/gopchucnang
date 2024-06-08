@@ -47,36 +47,49 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="lbADMIN" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbGDChung" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbTinhLuong" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbQLYCTL" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbQLYCNP" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbQuanLyCC" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbQuanLyPB" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbQLNV" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="lbDangXuat" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="lbCurrentUser" min="-2" pref="123" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="lbCurrentUser" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="lbADMIN" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lbGDChung" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbTinhLuong" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbQLYCTL" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbQLYCNP" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbQuanLyCC" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbQuanLyPB" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbQLNV" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="lbDangXuat" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbCurrentUser" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbADMIN" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="lbGDChung" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="lbQLNV" min="-2" pref="35" max="-2" attributes="0"/>
@@ -92,7 +105,7 @@
                   <Component id="lbTinhLuong" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lbDangXuat" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace pref="165" max="32767" attributes="0"/>
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,7 +117,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/employee.png"/>
+              <Image iconType="3" name="/Resources/employee.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; nh&#xe2;n vi&#xea;n"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -119,7 +132,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/department.png"/>
+              <Image iconType="3" name="/Resources/department.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ph&#xf2;ng ban"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -134,7 +147,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/timesheets.png"/>
+              <Image iconType="3" name="/Resources/timesheets.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ch&#x1ea5;m c&#xf4;ng"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -149,7 +162,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/contract.png"/>
+              <Image iconType="3" name="/Resources/contract.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; YCNP"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -164,7 +177,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/contract.png"/>
+              <Image iconType="3" name="/Resources/contract.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; YCUL"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -179,7 +192,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/salary.png"/>
+              <Image iconType="3" name="/Resources/salary.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="T&#xed;nh l&#x1b0;&#x1a1;ng"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -194,7 +207,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/home.png"/>
+              <Image iconType="3" name="/Resources/home.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe0;n h&#xec;nh chung"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -218,7 +231,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/account.png"/>
+              <Image iconType="3" name="/Resources/account.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
             <Property name="iconTextGap" type="int" value="12"/>
@@ -235,6 +248,13 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="ADMIN"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Resources/admin_avatar2.png"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
