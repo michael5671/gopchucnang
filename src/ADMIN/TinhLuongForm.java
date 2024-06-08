@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ADMIN;
+import Component.ScrollPaneWin11;
+import Component.myButton;
+import Component.myTable;
 import DAO.access_BANGLUONG;
 import DTO.BANGLUONG;
 import java.util.ArrayList;
@@ -60,12 +63,12 @@ public class TinhLuongForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        scrollPaneWin111 = new UI.ScrollPaneWin11();
-        DsLuong = new UI.myTable();
+        scrollPaneWin111 = new ScrollPaneWin11();
+        DsLuong = new myTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         MaNVtxtField = new javax.swing.JTextField();
-        add = new UI.myButton();
+        add = new myButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         ThangtxtField1 = new javax.swing.JTextField();
@@ -73,7 +76,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
         MaNVtxtField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         NamtxtField3 = new javax.swing.JTextField();
-        find = new UI.myButton();
+        find = new myButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1055, 768));
@@ -398,13 +401,13 @@ public class TinhLuongForm extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private UI.myTable DsLuong;
+    private myTable DsLuong;
     private javax.swing.JTextField MaNVtxtField;
     private javax.swing.JTextField MaNVtxtField2;
     private javax.swing.JTextField NamtxtField3;
     private javax.swing.JTextField ThangtxtField1;
-    private UI.myButton add;
-    private UI.myButton find;
+    private myButton add;
+    private myButton find;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -412,6 +415,6 @@ public class TinhLuongForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private UI.ScrollPaneWin11 scrollPaneWin111;
+    private ScrollPaneWin11 scrollPaneWin111;
     // End of variables declaration//GEN-END:variables
 }

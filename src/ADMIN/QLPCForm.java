@@ -4,6 +4,8 @@
  */
 package ADMIN;
 
+import Component.myTable;
+
 /**
  *
  * @author ADMIN
@@ -30,7 +32,7 @@ public class QLPCForm extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        myTable1 = new UI.myTable();
+        myTable1 = new myTable();
 
         setPreferredSize(new java.awt.Dimension(1055, 768));
 
@@ -82,6 +84,6 @@ public class QLPCForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private UI.myTable myTable1;
+    private myTable myTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,17 +6,16 @@ package DAO;
 
 import DTO.PHONGBAN;
 import DTO.TRUONGPHONG;
-import Data.JDBCConnection;
+import DTO.Connect;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author giaphu
  */
 public class access_PHONGBAN {
-    private Connection conn = new JDBCConnection().getJDBCConnection();
+    private Connection conn = new Connect().connect();
     public access_PHONGBAN() {
         
     }

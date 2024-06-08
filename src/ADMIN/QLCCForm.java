@@ -1,10 +1,13 @@
 package ADMIN;
 
 import javax.swing.table.*;
-import Object.PhieuChamCong;
+
+import Component.myTable;
+import DAO.access_NHANVIEN;
+import DTO.PHIEUCHAMCONG;
 import java.util.*;
 import javax.swing.JOptionPane;
-import DTA.*;
+
 /**
  *
  * @author ADMIN
@@ -71,7 +74,7 @@ public class QLCCForm extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        PhieuChamCongTb = new UI.myTable();
+        PhieuChamCongTb = new myTable();
         ThemKyCongBtn = new javax.swing.JButton();
         XoaKyCongBtn = new javax.swing.JButton();
 
@@ -146,7 +149,7 @@ public class QLCCForm extends javax.swing.JPanel {
         jLabel1.setText("Danh sách kỳ công");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/recruitment.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/recruitment.png"))); // NOI18N
         jButton1.setText("Tìm kiếm");
         jButton1.setIconTextGap(8);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +245,7 @@ public class QLCCForm extends javax.swing.JPanel {
         int MaKC= txtMaKyCong.getText().isEmpty()?0:Integer.parseInt(txtMaKyCong.getText());
         int Thang= txtThangKyCong.getText().isEmpty()?0:Integer.parseInt(txtThangKyCong.getText());
         int Nam= txtNamKyCong.getText().isEmpty()?0:Integer.parseInt(txtNamKyCong.getText());
-        ArrayList<PhieuChamCong> al =PhieuChamCong.getPhieuChamCong(MaKC, Thang, Nam);
+        ArrayList<PHIEUCHAMCONG> al = PHIEUCHAMCONG.getPhieuChamCong(MaKC, Thang, Nam);
         al.stream().map(p -> {
             String[] row = new String[3];
             row[0]=Integer.toString(p.getMAPCC());
@@ -281,7 +284,7 @@ public class QLCCForm extends javax.swing.JPanel {
         }    }//GEN-LAST:event_txtThangKyCongKeyTyped
 
     private void XoaKyCongBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaKyCongBtnActionPerformed
-        PhieuChamCong.XoaPhieu(Integer.parseInt(defaultTable.getValueAt(PhieuChamCongTb.getSelectedRow(),0).toString()));
+        PHIEUCHAMCONG.XoaPhieu(Integer.parseInt(defaultTable.getValueAt(PhieuChamCongTb.getSelectedRow(),0).toString()));
         defaultTable.removeRow(PhieuChamCongTb.getSelectedRow());
 
          
@@ -297,11 +300,11 @@ public class QLCCForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Mã nhân viên không hợp lệ!", "Lỗi", JOptionPane.ERROR_MESSAGE);
 
             }
-            else if(PhieuChamCong.TinhTrangChamCong(maNhanVien, c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR))){
+            else if(PHIEUCHAMCONG.TinhTrangChamCong(maNhanVien, c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR))){
                 JOptionPane.showMessageDialog(this, "Nhân viên đã chấm công trong ngày hôm nay rồi!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
             else {
-                PhieuChamCong.ChamCongHomNay(maNhanVien); 
+                PHIEUCHAMCONG.ChamCongHomNay(maNhanVien);
                 JOptionPane.showMessageDialog(this, "Thêm ký công thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                 PhieuChamCongTbHandler();
             }
@@ -315,7 +318,7 @@ public class QLCCForm extends javax.swing.JPanel {
         defaultTable.setColumnIdentifiers(new String [] {
          "Mã số","Mã nhân viên", "Ngày chấm công"
          });
-        ArrayList<PhieuChamCong> al = PhieuChamCong.getAllPhieuChamCong();
+        ArrayList<PHIEUCHAMCONG> al = PHIEUCHAMCONG.getAllPhieuChamCong();
         al.stream().map(p -> {
             String[] row = new String[3];
             row[0]=Integer.toString(p.getMAPCC());
@@ -329,7 +332,7 @@ public class QLCCForm extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private UI.myTable PhieuChamCongTb;
+    private myTable PhieuChamCongTb;
     private javax.swing.JButton ThemKyCongBtn;
     private javax.swing.JButton XoaKyCongBtn;
     private javax.swing.ButtonGroup buttonGroup1;

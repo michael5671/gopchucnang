@@ -7,15 +7,16 @@ import static DAO.access_YEUCAUUNGLUONG.getTIENUL;
 import static DAO.access_YEUCAUUNGLUONG.getYEUCAUUNGLUONG;
 import static DAO.access_YEUCAUUNGLUONG.XuLyYeuCauUL;
 import static DAO.access_YEUCAUUNGLUONG.getNewYEUCAUUNGLUONG;
+
+import Component.ScrollPaneWin11;
+import Component.myButton;
+import Component.myTable;
 import DTO.YEUCAUUNGLUONG;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -49,10 +50,10 @@ public class QLYCULForm extends javax.swing.JPanel {
             defaultTable.addRow( new Object[]{
                // index,
                // tmp.getMaYCUL() + " - " + tmp.getMaNV(),
-                tmp.getMaYCUL(),
+                tmp.getMaYC(),
                 getTenFromMa(Integer.toString(tmp.getMaNV())),
-                tmp.getNgUL(),
-                tmp.gettThaiYCUL()
+                tmp.getNgayGui(),
+                tmp.getTrangThai()
             });
             //index ++;
         }
@@ -90,9 +91,9 @@ public class QLYCULForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPheDuyet = new UI.myButton();
+        btnPheDuyet = new myButton();
         jLabel2 = new javax.swing.JLabel();
-        btnTuChoi = new UI.myButton();
+        btnTuChoi = new myButton();
         panelThongTinYC = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -110,9 +111,9 @@ public class QLYCULForm extends javax.swing.JPanel {
         txtSearchTenNV = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         cbTrangThai = new javax.swing.JComboBox<>();
-        btnSearch = new UI.myButton();
-        scrollPaneWin111 = new UI.ScrollPaneWin11();
-        tbDSYCUL = new UI.myTable();
+        btnSearch = new myButton();
+        scrollPaneWin111 = new ScrollPaneWin11();
+        tbDSYCUL = new myTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1055, 768));
@@ -254,7 +255,7 @@ public class QLYCULForm extends javax.swing.JPanel {
 
         btnSearch.setBorder(null);
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/recruitment2.png"))); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/recruitment2.png"))); // NOI18N
         btnSearch.setText("Tìm kiếm");
         btnSearch.setColor(new java.awt.Color(102, 153, 255));
         btnSearch.setColorClick(new java.awt.Color(153, 255, 255));
@@ -442,10 +443,10 @@ public class QLYCULForm extends javax.swing.JPanel {
         {
             defaultTable.addRow( new Object[]{
                // tmp.getMaYCUL() + " - " + tmp.getMaNV(),
-                tmp.getMaYCUL(),
+                tmp.getMaYC(),
                 getTenFromMa(Integer.toString(tmp.getMaNV())),
-                tmp.getNgUL(),
-                tmp.gettThaiYCUL()
+                tmp.getNgayGui(),
+                tmp.getTrangThai()
             });
         }
         tbDSYCUL.setModel(defaultTable);
@@ -459,9 +460,9 @@ public class QLYCULForm extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDSYCULMouseClicked
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private UI.myButton btnPheDuyet;
-    private UI.myButton btnSearch;
-    private UI.myButton btnTuChoi;
+    private myButton btnPheDuyet;
+    private myButton btnSearch;
+    private myButton btnTuChoi;
     private javax.swing.JComboBox<String> cbTrangThai;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -478,8 +479,8 @@ public class QLYCULForm extends javax.swing.JPanel {
     private javax.swing.JLabel lbTrangThai;
     private javax.swing.JPanel panelThongTinYC;
     private javax.swing.JPanel pnTraCuuYCUL;
-    private UI.ScrollPaneWin11 scrollPaneWin111;
-    private UI.myTable tbDSYCUL;
+    private ScrollPaneWin11 scrollPaneWin111;
+    private myTable tbDSYCUL;
     private javax.swing.JTextPane txtGhiChu;
     private javax.swing.JTextField txtSearchTenNV;
     // End of variables declaration//GEN-END:variables

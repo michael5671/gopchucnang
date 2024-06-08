@@ -7,131 +7,143 @@ import java.time.LocalDate;
  * @author ADMIN
  */
 public class YEUCAUNGHIPHEP {
-    private int maYCNP;
-    private int maNV;
-    private LocalDate ngGui;
-    private LocalDate ngBD;
-    private LocalDate ngKT;
-    private String ghiChuNP;
-    private String tThaiYCNP;
+    private int MaYC;
+    private int MaNV;
+    private LocalDate NgayGui;
+    private LocalDate NgayBD;
+    private LocalDate NgayKT;
+    private String LyDo;
+    private String TrangThai;
     
     public YEUCAUNGHIPHEP()
     {
-        this.maYCNP = -1;
-        this.maNV = -1;
-        this.ngGui = LocalDate.of(2000,1, 1);
-        this.ngBD = LocalDate.of(2000,1, 1);
-        this.ngKT = LocalDate.of(2000,1, 1);
-        this.ghiChuNP = "None.";
-        this.tThaiYCNP = "Chua phe duyet";
+        this.MaYC = -1;
+        this.MaNV = -1;
+        this.NgayGui = LocalDate.of(2000,1, 1);
+        this.NgayBD = LocalDate.of(2000,1, 1);
+        this.NgayKT = LocalDate.of(2000,1, 1);
+        this.LyDo = "None.";
+        this.TrangThai = "Chua phe duyet";
     }
     
-    public YEUCAUNGHIPHEP(int ma, int nv, LocalDate ngGui, LocalDate ngBD, LocalDate ngKT, String ghiChu, String trangThai)
+    public YEUCAUNGHIPHEP(int ma, int nv, LocalDate NgayGui, LocalDate NgayBD, LocalDate NgayKT, String ghiChu, String trangThai)
     {
-        this.maYCNP = ma;
-        this.maNV = nv;
-        this.ngGui = ngGui;
-        this.ngBD = ngBD;
-        this.ngKT = ngKT;
-        this.ghiChuNP = ghiChu;
-        this.tThaiYCNP = trangThai;
+        this.MaYC = ma;
+        this.MaNV = nv;
+        this.NgayGui = NgayGui;
+        this.NgayBD = NgayBD;
+        this.NgayKT = NgayKT;
+        this.LyDo = ghiChu;
+        this.TrangThai = trangThai;
     }
 
     /**
      * @return the maYCNP
      */
-    public int getMaYCNP() {
-        return maYCNP;
+    public int getMaYC() {
+        return MaYC;
     }
 
     /**
-     * @param maYCNP the maYCNP to set
+     * @param maYC the maYCNP to set
      */
-    public void setMaYCNP(int maYCNP) {
-        this.maYCNP = maYCNP;
+    public void setMaYC(int maYC) {
+        this.MaYC = maYC;
     }
 
     /**
      * @return the maNV
      */
     public int getMaNV() {
-        return maNV;
+        return MaNV;
     }
 
     /**
      * @param maNV the maNV to set
      */
     public void setMaNV(int maNV) {
-        this.maNV = maNV;
+        this.MaNV = maNV;
     }
 
     /**
      * @return the ngGui
      */
-    public LocalDate getNgGui() {
-        return ngGui;
+    public LocalDate getNgayGui() {
+        return NgayGui;
     }
 
     /**
-     * @param ngGui the ngGui to set
+     * @param ngayGui the ngGui to set
      */
-    public void setNgGui(LocalDate ngGui) {
-        this.ngGui = ngGui;
+    public void setNgayGui(LocalDate ngayGui) {
+        this.NgayGui = ngayGui;
     }
 
     /**
      * @return the ngBD
      */
-    public LocalDate getNgBD() {
-        return ngBD;
+    public LocalDate getNgayBD() {
+        return NgayBD;
     }
 
     /**
-     * @param ngBD the ngBD to set
+     * @param ngayBD the ngBD to set
      */
-    public void setNgBD(LocalDate ngBD) {
-        this.ngBD = ngBD;
+    public void setNgayBD(LocalDate ngayBD) {
+        this.NgayBD = ngayBD;
     }
 
     /**
      * @return the ngKT
      */
-    public LocalDate getNgKT() {
-        return ngKT;
+    public LocalDate getNgayKT() {
+        return NgayKT;
     }
 
     /**
-     * @param ngKT the ngKT to set
+     * @param ngayKT the ngKT to set
      */
-    public void setNgKT(LocalDate ngKT) {
-        this.ngKT = ngKT;
+    public void setNgayKT(LocalDate ngayKT) {
+        this.NgayKT = ngayKT;
     }
 
     /**
      * @return the ghiChuNP
      */
-    public String getGhiChuNP() {
-        return ghiChuNP;
+    public String getLyDo() {
+        return LyDo;
     }
 
     /**
-     * @param ghiChuNP the ghiChuNP to set
+     * @param lyDo the ghiChuNP to set
      */
-    public void setGhiChuNP(String ghiChuNP) {
-        this.ghiChuNP = ghiChuNP;
+    public void setLyDo(String lyDo) {
+        this.LyDo = lyDo;
     }
 
     /**
      * @return the tThaiYCNP
      */
-    public String gettThaiYCNP() {
-        return tThaiYCNP;
+    public String getTrangThai() {
+        return TrangThai;
     }
 
     /**
-     * @param tThaiYCNP the tThaiYCNP to set
+     * @param trangThai the tThaiYCNP to set
      */
-    public void settThaiYCNP(String tThaiYCNP) {
-        this.tThaiYCNP = tThaiYCNP;
+    public void setTrangThai(String trangThai) {
+        this.TrangThai = trangThai;
     }
+    public String getStringNgayBD(){
+        return NgayBD.getDayOfMonth()+"/"+NgayBD.getMonthValue()+"/"+NgayBD.getYear();
+    }
+    public String getStringNgayKT(){
+        return NgayKT.getDayOfMonth()+"/"+NgayKT.getMonthValue()+"/"+NgayKT.getYear();
+    }
+    public String getStringNgayGui(){
+        return NgayGui.getDayOfMonth()+"/"+NgayGui.getMonthValue()+"/"+NgayGui.getYear();
+    }
+
+    private static String ThemYeuCau = "INSERT INTO YEUCAUNGHIPHEP (MAYCNP, MANV, NGAYGUI,NGAYBD,NGAYKT,GHICHUNP,TRANGTHAINP) VALUES (?, ?, ?,?,?,?,?)";
+    private static String MaxYeuCau = "SELECT MAX(MAYCNP) FROM YEUCAUNGHIPHEP";
 }

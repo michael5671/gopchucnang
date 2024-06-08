@@ -1,7 +1,7 @@
 package DAO;
 
-import Data.JDBCConnection;
-import Home.Connect;
+import DTO.Connect;
+
 import java.sql.*;
 
 /**
@@ -16,7 +16,7 @@ public class access_TAIKHOAN {
     public static int getThongTinKiemTraTaiKhoan(String username, String password)
     {
         int loaiTK = -1;
-        Connection conn = new JDBCConnection().getJDBCConnection();
+        Connection conn = new Connect().connect();
         String query = "SELECT * FROM TAIKHOAN WHERE TENTK = '"+username+"' AND MATKHAU = '"+password+"' ";
         try{
             Statement st = conn.createStatement();
@@ -57,7 +57,7 @@ public class access_TAIKHOAN {
     // LAY TEN NHAN VIEN TU TEN TAI KHOAN
     public static String getTenNVfromTenTK( String tenTK )
     {
-        Connection conn = JDBCConnection.getJDBCConnection();
+        Connection conn = Connect.connect();
         String query = "SELECT TENNV FROM TAIKHOAN TK, NHANVIEN NV WHERE TK.MANV = NV.MANV AND TENTK = '"+tenTK+"' ";
         String ten ="User";
         try{

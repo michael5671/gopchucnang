@@ -79,7 +79,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="UI.myButton" name="btnPheDuyet">
+    <Component class="Component.myButton" name="btnPheDuyet">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -117,7 +117,7 @@
         <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch y&#xea;u c&#x1ea7;u &#x1ee9;ng l&#x1b0;&#x1a1;ng"/>
       </Properties>
     </Component>
-    <Component class="UI.myButton" name="btnTuChoi">
+    <Component class="Component.myButton" name="btnTuChoi">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -430,7 +430,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="UI.myButton" name="btnSearch">
+        <Component class="Component.myButton" name="btnSearch">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -439,7 +439,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MenuIMG/recruitment2.png"/>
+              <Image iconType="3" name="/Resources/recruitment2.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
             <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -462,7 +462,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="UI.ScrollPaneWin11" name="scrollPaneWin111">
+    <Container class="Component.ScrollPaneWin11" name="scrollPaneWin111">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -475,7 +475,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="UI.myTable" name="tbDSYCUL">
+        <Component class="Component.myTable" name="tbDSYCUL">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">

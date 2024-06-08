@@ -1,7 +1,7 @@
 package ADMIN;
 
 import static DAO.access_TAIKHOAN.getTenNVfromTenTK;
-import Login.DangNhapForm;
+import USER.Login.DangNhapForm;
 import java.awt.*;
 import javax.swing.*;
 
@@ -71,7 +71,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         menuBar.setPreferredSize(new java.awt.Dimension(225, 768));
 
         lbQLNV.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbQLNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/employee.png"))); // NOI18N
+        lbQLNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/employee.png"))); // NOI18N
         lbQLNV.setText("Quản lý nhân viên");
         lbQLNV.setIconTextGap(12);
         lbQLNV.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,7 +81,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbQuanLyPB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbQuanLyPB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/department.png"))); // NOI18N
+        lbQuanLyPB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/department.png"))); // NOI18N
         lbQuanLyPB.setText("Quản lý phòng ban");
         lbQuanLyPB.setIconTextGap(12);
         lbQuanLyPB.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,7 +91,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbQuanLyCC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbQuanLyCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/timesheets.png"))); // NOI18N
+        lbQuanLyCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/timesheets.png"))); // NOI18N
         lbQuanLyCC.setText("Quản lý chấm công");
         lbQuanLyCC.setIconTextGap(12);
         lbQuanLyCC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,7 +101,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbQLYCNP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbQLYCNP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/contract.png"))); // NOI18N
+        lbQLYCNP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/contract.png"))); // NOI18N
         lbQLYCNP.setText("Quản lý YCNP");
         lbQLYCNP.setIconTextGap(12);
         lbQLYCNP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,7 +111,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbQLYCTL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbQLYCTL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/contract.png"))); // NOI18N
+        lbQLYCTL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/contract.png"))); // NOI18N
         lbQLYCTL.setText("Quản lý YCUL");
         lbQLYCTL.setIconTextGap(12);
         lbQLYCTL.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,7 +121,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbTinhLuong.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbTinhLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/salary.png"))); // NOI18N
+        lbTinhLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/salary.png"))); // NOI18N
         lbTinhLuong.setText("Tính lương");
         lbTinhLuong.setIconTextGap(12);
         lbTinhLuong.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,7 +131,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         });
 
         lbGDChung.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbGDChung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/home.png"))); // NOI18N
+        lbGDChung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/home.png"))); // NOI18N
         lbGDChung.setText("Màn hình chung");
         lbGDChung.setIconTextGap(12);
         lbGDChung.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,7 +145,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         lbCurrentUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbDangXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/account.png"))); // NOI18N
+        lbDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/account.png"))); // NOI18N
         lbDangXuat.setText("Đăng xuất");
         lbDangXuat.setIconTextGap(12);
         lbDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,7 +159,7 @@ public class GiaoDienAdmin extends javax.swing.JFrame {
         lbADMIN.setText("ADMIN");
         lbADMIN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/admin_avatar2.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/admin_avatar2.png"))); // NOI18N
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
