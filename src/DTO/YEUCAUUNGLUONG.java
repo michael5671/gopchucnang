@@ -8,118 +8,118 @@ import java.time.LocalDate;
  */
 public class YEUCAUUNGLUONG {
     
-    private int maYCUL;
-    private int maNV;
-    private LocalDate ngUL;
-    private long tienUL;
-    private String ghiChuUL;
-    private String tThaiYCUL;
+    private int MaYC;
+    private int MaNV;
+    private LocalDate NgayGui;
+    private long TienUng;
+    private String GhiChu;
+    private String TrangThai;
     //private LocalDate ngPheDuyet;
     
     public YEUCAUUNGLUONG()
     {
-        this.maYCUL = -1;
-        this.maNV = -1;
-        this.ngUL = LocalDate.of(2000,1, 1);
-        this.tienUL = 0;
-        this.ghiChuUL = "None.";
-        this.tThaiYCUL = "Chua phe duyet";
+        this.MaYC = -1;
+        this.MaNV = -1;
+        this.NgayGui = LocalDate.of(2000,1, 1);
+        this.TienUng = 0;
+        this.GhiChu = "None.";
+        this.TrangThai = "Chua phe duyet";
         //this.ngPheDuyet = LocalDate.of(2000, 1, 1);
     }
     
     public YEUCAUUNGLUONG(int ma, int nv, LocalDate ngayGui, long tien, String ghichu, String trangThai)
     {
-        this.maYCUL = ma;
-        this.maNV = nv;
-        this.ngUL = ngayGui;
-        this.tienUL = tien;
-        this.ghiChuUL = ghichu;
-        this.tThaiYCUL = trangThai;
+        this.MaYC = ma;
+        this.MaNV = nv;
+        this.NgayGui = ngayGui;
+        this.TienUng = tien;
+        this.GhiChu = ghichu;
+        this.TrangThai = trangThai;
        // this.ngPheDuyet = ngPheDuyet;
     }
 
     /**
      * @return the maYCUL
      */
-    public int getMaYCUL() {
-        return maYCUL;
+    public int getMaYC() {
+        return MaYC;
     }
 
     /**
-     * @param maYCUL the maYCUL to set
+     * @param maYC the maYCUL to set
      */
-    public void setMaYCUL(int maYCUL) {
-        this.maYCUL = maYCUL;
+    public void setMaYC(int maYC) {
+        this.MaYC = maYC;
     }
 
     /**
      * @return the maNV
      */
     public int getMaNV() {
-        return maNV;
+        return MaNV;
     }
 
     /**
      * @param maNV the maNV to set
      */
     public void setMaNV(int maNV) {
-        this.maNV = maNV;
+        this.MaNV = maNV;
     }
 
     /**
      * @return the ngUL
      */
-    public LocalDate getNgUL() {
-        return ngUL;
+    public LocalDate getNgayGui() {
+        return NgayGui;
     }
 
     /**
-     * @param ngUL the ngUL to set
+     * @param ngayGui the ngUL to set
      */
-    public void setNgUL(LocalDate ngUL) {
-        this.ngUL = ngUL;
+    public void setNgayGui(LocalDate ngayGui) {
+        this.NgayGui = ngayGui;
     }
 
     /**
      * @return the tienUL
      */
-    public long getTienUL() {
-        return tienUL;
+    public long getTienUng() {
+        return TienUng;
     }
 
     /**
-     * @param tienUL the tienUL to set
+     * @param tienUng the tienUL to set
      */
-    public void setTienUL(long tienUL) {
-        this.tienUL = tienUL;
+    public void setTienUng(long tienUng) {
+        this.TienUng = tienUng;
     }
 
     /**
      * @return the ghiChuUL
      */
-    public String getGhiChuUL() {
-        return ghiChuUL;
+    public String getGhiChu() {
+        return GhiChu;
     }
 
     /**
-     * @param ghiChuUL the ghiChuUL to set
+     * @param ghiChu the ghiChuUL to set
      */
-    public void setGhiChuUL(String ghiChuUL) {
-        this.ghiChuUL = ghiChuUL;
+    public void setGhiChu(String ghiChu) {
+        this.GhiChu = ghiChu;
     }
 
     /**
      * @return the tThaiYCUL
      */
-    public String gettThaiYCUL() {
-        return tThaiYCUL;
+    public String getTrangThai() {
+        return TrangThai;
     }
 
     /**
-     * @param tThaiYCUL the tThaiYCUL to set
+     * @param trangThai the tThaiYCUL to set
      */
-    public void settThaiYCUL(String tThaiYCUL) {
-        this.tThaiYCUL = tThaiYCUL;
+    public void setTrangThai(String trangThai) {
+        this.TrangThai = trangThai;
     }
 
     /**
@@ -140,5 +140,9 @@ public class YEUCAUUNGLUONG {
         this.ngPheDuyet = ngPheDuyet;
     }
 */
-    
+    public String getStringNgayGui() {
+        return NgayGui.getDayOfMonth() + "/" + NgayGui.getMonthValue() + "/" + NgayGui.getYear();
+    }
+
+
 }

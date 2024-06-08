@@ -3,23 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ADMIN;
+import Component.ScrollPaneWin11;
+import Component.myTable;
 import DAO.access_PHONGBAN;
 import DTO.PHONGBAN;
-import java.sql.*;
-import Data.JDBCConnection;
 import com.toedter.calendar.JDateChooser;
-import java.awt.Frame;
-import java.awt.GridLayout;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.*;
-import DTO.PHONGBAN;
 import java.util.ArrayList;
 /**
  *
@@ -150,8 +144,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         DeleteButton = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        scrollpanel = new UI.ScrollPaneWin11();
-        DsPB3 = new UI.myTable();
+        scrollpanel = new ScrollPaneWin11();
+        DsPB3 = new myTable();
         Them = new javax.swing.JPanel();
         tenPB = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -167,8 +161,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
         Tim1 = new javax.swing.JButton();
-        scrollPaneWin111 = new UI.ScrollPaneWin11();
-        DsPB = new UI.myTable();
+        scrollPaneWin111 = new ScrollPaneWin11();
+        DsPB = new myTable();
         Xoa = new javax.swing.JPanel();
         tenPB2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -177,8 +171,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         submit1 = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
-        scrollPaneWin112 = new UI.ScrollPaneWin11();
-        DsPB1 = new UI.myTable();
+        scrollPaneWin112 = new ScrollPaneWin11();
+        DsPB1 = new myTable();
 
         jButton1.setText("jButton1");
 
@@ -911,9 +905,9 @@ public class QLPBForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Delete;
     private javax.swing.JPanel DeleteButton;
-    private UI.myTable DsPB;
-    private UI.myTable DsPB1;
-    private UI.myTable DsPB3;
+    private myTable DsPB;
+    private myTable DsPB1;
+    private myTable DsPB3;
     private javax.swing.JButton QuayLai;
     private javax.swing.JButton QuayLai1;
     private javax.swing.JButton QuayLai2;
@@ -942,9 +936,9 @@ public class QLPBForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menu;
-    private UI.ScrollPaneWin11 scrollPaneWin111;
-    private UI.ScrollPaneWin11 scrollPaneWin112;
-    private UI.ScrollPaneWin11 scrollpanel;
+    private ScrollPaneWin11 scrollPaneWin111;
+    private ScrollPaneWin11 scrollPaneWin112;
+    private ScrollPaneWin11 scrollpanel;
     private javax.swing.JButton submit;
     private javax.swing.JButton submit1;
     private javax.swing.JTextField tenPB;

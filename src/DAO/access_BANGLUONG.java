@@ -5,7 +5,7 @@
 package DAO;
 import DTO.BANGLUONG;
 import  java.sql.*;
-import Data.JDBCConnection;
+import DTO.Connect;
  
 /**
  *
@@ -16,7 +16,7 @@ public class access_BANGLUONG {
     private Connection connection;
     
     public access_BANGLUONG() {
-        this.connection = JDBCConnection.getJDBCConnection();
+        this.connection = Connect.connect();
     }
     public void addBangLuong(BANGLUONG bangLuong) throws SQLException {
         String query = "{CALL add_bangluong(?, ?, ?, ?, ?)}";
@@ -102,7 +102,7 @@ public class access_BANGLUONG {
     }
     public ArrayList<BANGLUONG> findBangLuong(Integer maNV, Integer thang, Integer nam) throws SQLException {
         ArrayList<BANGLUONG> bangLuongList = new ArrayList<>();
-    Connection connection = JDBCConnection.getJDBCConnection();
+    Connection connection = Connect.connect();
     StringBuilder query = new StringBuilder("SELECT * FROM BANGLUONG WHERE 1=1");
 
     if (maNV != null) {

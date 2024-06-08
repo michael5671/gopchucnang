@@ -4,13 +4,15 @@
  */
 package ADMIN;
 
-import static DTA.access_NHANVIEN.getNHANVIEN;
+import static DAO.access_NHANVIEN.getNHANVIEN;
+
+import Component.ScrollPaneWin11;
+import Component.myTable;
 import DTO.NHANVIEN;
-import Data.JDBCConnection;
-import Home.Connect;
+import DTO.Connect;
+
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +36,7 @@ public class QLNVForm extends javax.swing.JPanel {
         ListPBHandle();
         initComponents();
         initDSNV();
-        con = JDBCConnection.getJDBCConnection();
+        con = Connect.connect();
         tableNV.getColumnModel().getColumn(0).setPreferredWidth(20);
         tableNV.getColumnModel().getColumn(1).setPreferredWidth(25);
         tableNV.getColumnModel().getColumn(6).setPreferredWidth(40); // GIOI TINH
@@ -83,8 +85,8 @@ public class QLNVForm extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        scrollPaneWin112 = new UI.ScrollPaneWin11();
-        tableNV = new UI.myTable();
+        scrollPaneWin112 = new ScrollPaneWin11();
+        tableNV = new myTable();
         p1_AddPane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -978,8 +980,8 @@ public class QLNVForm extends javax.swing.JPanel {
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p1_AddPane;
     private javax.swing.JPanel p1_UpdatePane;
-    private UI.ScrollPaneWin11 scrollPaneWin112;
-    private UI.myTable tableNV;
+    private ScrollPaneWin11 scrollPaneWin112;
+    private myTable tableNV;
     private javax.swing.JTextField txtCCCD;
     private javax.swing.JTextField txtCCCD1;
     private javax.swing.JComboBox<String> txtChucVu;

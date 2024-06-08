@@ -4,8 +4,8 @@
  */
 package ADMIN;
 
-import Home.Connect;
-import Home.Home;
+import DTO.Connect;
+
 import java.sql.Connection;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -59,7 +59,7 @@ public class Dashboard extends javax.swing.JPanel {
         LbNgayThangNam.setText(ngay[c.get(Calendar.DAY_OF_WEEK)]+", ngày " +c.get(Calendar.DATE)+" Tháng " + (c.get(Calendar.MONTH)+1)+" năm "+ c.get(Calendar.YEAR));
         add(LbNgayThangNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 167, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuIMG/admin_wallpaper1.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/admin_wallpaper1.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 10, 1270, 720));
     }// </editor-fold>//GEN-END:initComponents
     private String getBuoi(){
@@ -71,8 +71,8 @@ public class Dashboard extends javax.swing.JPanel {
     }
     private String getBuoiIcon(){
         int hour = c.get(Calendar.HOUR_OF_DAY);
-        if(hour>6&&hour<18) return "/Home/mattroipng.png";
-        else return "/Home/mattrang.png";
+        if(hour>6&&hour<18) return "/Resources/mattroipng.png";
+        else return "/Resources/mattrang.png";
     }
     public static void main(String args[]) {
 
