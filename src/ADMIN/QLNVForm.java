@@ -10,7 +10,7 @@ import Component.ScrollPaneWin11;
 import Component.myTable;
 import DTO.NHANVIEN;
 import DTO.Connect;
-
+import DAO.access_NHANVIEN;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -20,8 +20,10 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.io.*;
 
-
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  *
  * @author ADMIN
@@ -85,8 +87,9 @@ public class QLNVForm extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        scrollPaneWin112 = new ScrollPaneWin11();
-        tableNV = new myTable();
+        scrollPaneWin112 = new Component.ScrollPaneWin11();
+        tableNV = new Component.myTable();
+        jButton4 = new javax.swing.JButton();
         p1_AddPane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -204,6 +207,13 @@ public class QLNVForm extends javax.swing.JPanel {
             tableNV.getColumnModel().getColumn(2).setPreferredWidth(45);
         }
 
+        jButton4.setText("In danh sách nhân viên");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
         p1.setLayout(p1Layout);
         p1Layout.setHorizontalGroup(
@@ -213,7 +223,9 @@ public class QLNVForm extends javax.swing.JPanel {
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
                     .addGroup(p1Layout.createSequentialGroup()
-                        .addGap(598, 598, 598)
+                        .addGap(429, 429, 429)
+                        .addComponent(jButton4)
+                        .addGap(94, 94, 94)
                         .addComponent(jButton1)
                         .addGap(79, 79, 79)
                         .addComponent(jButton2)
@@ -231,10 +243,11 @@ public class QLNVForm extends javax.swing.JPanel {
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
                 .addGap(18, 18, 18)
                 .addComponent(scrollPaneWin112, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         add(p1, "card2");
@@ -401,7 +414,7 @@ public class QLNVForm extends javax.swing.JPanel {
                             .addComponent(checkGioiTinh, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTenNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(195, Short.MAX_VALUE))
+                        .addContainerGap(214, Short.MAX_VALUE))
                     .addGroup(p1_AddPaneLayout.createSequentialGroup()
                         .addGroup(p1_AddPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,7 +633,7 @@ public class QLNVForm extends javax.swing.JPanel {
                                 .addComponent(txtQueQuan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                                 .addComponent(txtCCCD1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtTenNV1, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(266, Short.MAX_VALUE))
+                        .addContainerGap(285, Short.MAX_VALUE))
                     .addGroup(p1_UpdatePaneLayout.createSequentialGroup()
                         .addGroup(p1_UpdatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(checkGioiTinh1)
@@ -906,6 +919,55 @@ public class QLNVForm extends javax.swing.JPanel {
     private void txtMaPBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaPBActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+            ArrayList<NHANVIEN> al = access_NHANVIEN.getNHANVIEN();
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Danh sách nhân viên");
+            Row headerRow = sheet.createRow(0);
+            
+            Cell cell = headerRow.createCell(0);
+            cell.setCellValue("Mã nhân viên");
+            cell = headerRow.createCell(1);
+            cell.setCellValue("Mã phòng ban");
+            cell = headerRow.createCell(2);
+            cell.setCellValue("Tên nhân viên");
+            cell = headerRow.createCell(3);
+            cell.setCellValue("CCCD");  
+            cell = headerRow.createCell(4);
+            cell.setCellValue("Ngày sinh");      
+            cell = headerRow.createCell(5);
+            cell.setCellValue("Quê quán");      
+            cell = headerRow.createCell(6);
+            cell.setCellValue("Giới tính");
+            cell = headerRow.createCell(7);
+            cell.setCellValue("Chức vụ");
+            cell = headerRow.createCell(8);
+            cell.setCellValue("Lương cơ bản");
+            cell = headerRow.createCell(9);
+            cell.setCellValue("Hệ số");       
+            for(int i =0;i<al.size();i++){
+                   Row row = sheet.createRow(i+1);
+                   row.createCell(0).setCellValue(al.get(i).getMaNV());
+                   row.createCell(1).setCellValue(al.get(i).getMaPB());
+                   row.createCell(2).setCellValue(al.get(i).getTenNV());
+                   row.createCell(3).setCellValue(al.get(i).getCCCD());
+                   row.createCell(4).setCellValue(al.get(i).getNgSinh().toString());
+                   row.createCell(5).setCellValue(al.get(i).getQueQuan());
+                   row.createCell(6).setCellValue(al.get(i).getStringGioiTinh());
+                   row.createCell(7).setCellValue(al.get(i).getChucVu());
+                   row.createCell(8).setCellValue(al.get(i).getLuongCB());
+                   row.createCell(9).setCellValue(al.get(i).getHeSo());
+            }
+            try (FileOutputStream outputStream = new FileOutputStream("D:/danhsachnhanvien.xlsx")) {
+                workbook.write(outputStream);           
+                JOptionPane.showMessageDialog(this, "Xuất bảng lương thành công tại"+" D:/danhsachnhanvien.xlsx", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
     /*
     void reset() {
     txtMaPB1.setText(""); // MAPB
@@ -952,6 +1014,7 @@ public class QLNVForm extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel5;
@@ -980,8 +1043,8 @@ public class QLNVForm extends javax.swing.JPanel {
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p1_AddPane;
     private javax.swing.JPanel p1_UpdatePane;
-    private ScrollPaneWin11 scrollPaneWin112;
-    private myTable tableNV;
+    private Component.ScrollPaneWin11 scrollPaneWin112;
+    private Component.myTable tableNV;
     private javax.swing.JTextField txtCCCD;
     private javax.swing.JTextField txtCCCD1;
     private javax.swing.JComboBox<String> txtChucVu;

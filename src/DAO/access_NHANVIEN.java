@@ -112,4 +112,20 @@ public class access_NHANVIEN {
         }
         return maNV;
     }
+    public static ArrayList<Integer> getALLMaNV(){
+        ArrayList<Integer> UserList = new ArrayList<>();
+        String sql = "SELECT MANV FROM NHANVIEN";
+
+        try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                UserList.add(rs.getInt("MANV"));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return UserList;
+    }
 }

@@ -1,6 +1,7 @@
 package DTO;
 
 import java.time.LocalDate;
+import org.apache.poi.ss.usermodel.Name;
 
 /**
  *
@@ -110,6 +111,7 @@ public class NHANVIEN {
         return ngSinh;
     }
 
+
     /**
      * @param ngSinh the ngSinh to set
      */
@@ -189,5 +191,8 @@ public class NHANVIEN {
     
     public double tinhLuongNgay() {
         return (luongCB * heSo) / 25;
+    }
+    public String getStringGioiTinh(){
+        return gioiTinh?"Nam" :"Nu";
     }
 }

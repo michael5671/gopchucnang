@@ -9,7 +9,21 @@ import DTO.Connect;
 import java.sql.Connection;
 import java.util.Calendar;
 import java.util.TimeZone;
-
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+import org.jfree.chart.*;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author ADMIN
@@ -28,6 +42,7 @@ public class Dashboard extends javax.swing.JPanel {
                 c = Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
         con = Connect.connect();
         initComponents();
+        showTiLeGioiTinhChart();
     }
 
     /**
@@ -39,6 +54,13 @@ public class Dashboard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PieChartPanel = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         LbChao = new javax.swing.JLabel();
         LbBuoiIcon = new javax.swing.JLabel();
         LbNgayThangNam = new javax.swing.JLabel();
@@ -47,6 +69,51 @@ public class Dashboard extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1055, 768));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(PieChartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 830, 460));
+
+        jButton1.setText("Tỉ lệ giới tính");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 290, 190, -1));
+
+        jButton2.setText("Tỉ lệ nhân viên các phòng ban");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, 190, -1));
+
+        jButton3.setText("Số lượng chấm công");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 350, 190, -1));
+
+        jButton4.setText("Tỉ lệ gửi yêu cầu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 190, -1));
+
+        jButton5.setText("Số lương được chi trả");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 190, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setText("Thống kê");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, -1, 40));
 
         LbChao.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         LbChao.setText(getBuoi());
@@ -60,8 +127,26 @@ public class Dashboard extends javax.swing.JPanel {
         add(LbNgayThangNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 167, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/admin_wallpaper1.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 10, 1270, 720));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -60, 1270, 900));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+showTiLeChamCong();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        showTiLeLuong();    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+showTiLeGioiTinhChart();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+showTiLePhongBanChart();    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+showTiLeGuiYeuCau();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
     private String getBuoi(){
         int hour = c.get(Calendar.HOUR_OF_DAY);
         if(hour>6&&hour<=11) return "Chào buổi sáng";
@@ -74,6 +159,205 @@ public class Dashboard extends javax.swing.JPanel {
         if(hour>6&&hour<18) return "/Resources/mattroipng.png";
         else return "/Resources/mattrang.png";
     }
+    public void showTiLeGioiTinhChart(){    
+      int Nam=0;
+      int Nu=0;
+      try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM NHANVIEN WHERE GIOITINH=1");
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Nam=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+           try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM NHANVIEN WHERE GIOITINH=0");
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Nu=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+      DefaultPieDataset barDataset = new DefaultPieDataset( );
+      barDataset.setValue( "Nam, "+Nam , Nam);  
+      barDataset.setValue( "Nữ," +Nu , Nu);   
+      //create chart
+       JFreeChart piechart = ChartFactory.createPieChart("Tỉ lệ giới tính",barDataset, false,true,false);//explain
+
+        //create chartPanel to display chart(graph)
+        ChartPanel barChartPanel = new ChartPanel(piechart);
+        PieChartPanel.removeAll();
+        PieChartPanel.add(barChartPanel, BorderLayout.CENTER);
+        PieChartPanel.validate();
+    }
+    
+    
+    
+    
+        public void showTiLePhongBanChart(){    
+      DefaultPieDataset barDataset = new DefaultPieDataset( );
+      try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT TENPB,MAPB FROM PHONGBAN");
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                PreparedStatement p = con.prepareStatement("SELECT COUNT(*) FROM NHANVIEN WHERE MAPB=?");
+                p.setString(1, rs.getString("MAPB"));
+                ResultSet r = p.executeQuery();
+                if(r.next()){
+                    barDataset.setValue(rs.getString("TENPB")+", "+r.getInt(1),r.getInt(1));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+      //create chart
+       JFreeChart piechart = ChartFactory.createPieChart("Tỉ lệ nhân viên các phòng ban",barDataset, false,true,false);//explain
+
+        //create chartPanel to display chart(graph)
+        ChartPanel barChartPanel = new ChartPanel(piechart);
+        PieChartPanel.removeAll();
+        PieChartPanel.add(barChartPanel, BorderLayout.CENTER);
+        PieChartPanel.validate();
+    }
+        
+        
+        public void showTiLeChamCong(){
+            int startMonth=(11+c.get(Calendar.MONTH)-6)%11;
+            int curYear=c.get(Calendar.YEAR);
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+            for(int i =0;i<=6;i++){
+                int curMonth=(startMonth+i)%11+1;
+                int sum=0;
+            try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM PHIEUCHAMCONG WHERE EXTRACT(MONTH FROM NGAYCC) = ? AND EXTRACT(YEAR FROM NGAYCC) =?");
+             ) {
+                ps.setInt(1, curMonth);
+                ps.setInt(2, curYear);
+
+                ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                sum+=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+                System.out.println(e);
+        }
+
+                dataset.setValue(sum, "Amount",  "Tháng "+curMonth);
+            }
+
+        
+        JFreeChart chart = ChartFactory.createBarChart("contribution","Tháng","Số lượng phiếu chấm công", 
+                dataset, PlotOrientation.VERTICAL, false,true,false);
+        
+        CategoryPlot categoryPlot = chart.getCategoryPlot();
+        //categoryPlot.setRangeGridlinePaint(Color.BLUE);
+        categoryPlot.setBackgroundPaint(Color.WHITE);
+        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+        Color clr3 = new Color(85,85,255);
+        renderer.setSeriesPaint(0, clr3);
+        
+        ChartPanel barpChartPanel = new ChartPanel(chart);
+        PieChartPanel.removeAll();
+        PieChartPanel.add(barpChartPanel, BorderLayout.CENTER);
+        PieChartPanel.validate();
+       
+    }
+        
+              public void showTiLeGuiYeuCau(){
+            int startMonth=(11+c.get(Calendar.MONTH)-6)%11;
+            int curYear=c.get(Calendar.YEAR);
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+            for(int i =0;i<=6;i++){
+                int curMonth=(startMonth+i)%11+1;
+                int sum=0;
+            try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM YEUCAUUNGLUONG WHERE EXTRACT(MONTH FROM NGAYUL) = ? AND EXTRACT(YEAR FROM NGAYUL) =?");
+             ) {
+                ps.setInt(1, curMonth);
+                ps.setInt(2, curYear);
+
+                ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                sum+=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+                System.out.println(e);
+        }
+           try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM YEUCAUNGHIPHEP WHERE EXTRACT(MONTH FROM NGAYGUI) = ? AND EXTRACT(YEAR FROM NGAYGUI) =?");
+            ) {
+                ps.setInt(1, curMonth);
+                ps.setInt(2, curYear);
+                ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                sum+=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+               System.out.println(e);
+        }
+                dataset.setValue(sum, "Amount",  "Tháng "+curMonth);
+            }
+
+        
+        JFreeChart chart = ChartFactory.createBarChart("contribution","Tháng","Số lượng yêu cầu", 
+                dataset, PlotOrientation.VERTICAL, false,true,false);
+        
+        CategoryPlot categoryPlot = chart.getCategoryPlot();
+        //categoryPlot.setRangeGridlinePaint(Color.BLUE);
+        categoryPlot.setBackgroundPaint(Color.WHITE);
+        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+        Color clr3 = new Color(85,85,255);
+        renderer.setSeriesPaint(0, clr3);
+        
+        ChartPanel barpChartPanel = new ChartPanel(chart);
+        PieChartPanel.removeAll();
+        PieChartPanel.add(barpChartPanel, BorderLayout.CENTER);
+        PieChartPanel.validate();
+    } 
+              
+                            public void showTiLeLuong(){
+            int startMonth=(11+c.get(Calendar.MONTH)-6)%11;
+            int curYear=c.get(Calendar.YEAR);
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+            for(int i =0;i<=6;i++){
+                int curMonth=(startMonth+i)%11+1;
+                int sum=0;
+            try (Connection con = new Connect().connect();PreparedStatement ps = con.prepareStatement("SELECT SUM(LUONGTL) FROM BANGLUONG WHERE THANG = ? AND NAM =?");
+             ) {
+                ps.setInt(1, curMonth);
+                ps.setInt(2, curYear);
+
+                ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                sum+=rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+                System.out.println(e);
+        }
+                dataset.setValue(sum, "Amount",  "Tháng "+curMonth);
+            }
+
+        
+        JFreeChart chart = ChartFactory.createBarChart("contribution","Tháng","Tổng tiền đã chi", 
+                dataset, PlotOrientation.VERTICAL, false,true,false);
+        
+        CategoryPlot categoryPlot = chart.getCategoryPlot();
+        //categoryPlot.setRangeGridlinePaint(Color.BLUE);
+        categoryPlot.setBackgroundPaint(Color.WHITE);
+        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+        Color clr3 = new Color(85,85,255);
+        renderer.setSeriesPaint(0, clr3);
+        
+        ChartPanel barpChartPanel = new ChartPanel(chart);
+        PieChartPanel.removeAll();
+        PieChartPanel.add(barpChartPanel, BorderLayout.CENTER);
+        PieChartPanel.validate();
+    }
     public static void main(String args[]) {
 
                 new Dashboard().setVisible(true);
@@ -83,6 +367,13 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JLabel LbBuoiIcon;
     private javax.swing.JLabel LbChao;
     private javax.swing.JLabel LbNgayThangNam;
+    private javax.swing.JPanel PieChartPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

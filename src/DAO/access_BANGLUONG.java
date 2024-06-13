@@ -86,7 +86,7 @@ public class access_BANGLUONG {
     }
 
     public int getSoNgayCong(int maNV, int nam, int thang) throws SQLException {
-        String query = "SELECT COUNT(*) AS SONGAYCONG FROM PHIEUCHAMCONG WHERE MANV = ? AND EXTRACT(YEAR FROM NGAYCC) = ? AND EXTRACT(MONTH FROM NGAYCC) = ?";
+        String query = "SELECT COUNT(*) AS SONGAYCONG FROM BANGLUONG WHERE MANV = ? AND EXTRACT(YEAR FROM NGAYCC) = ? AND EXTRACT(MONTH FROM NGAYCC) = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, maNV);
         pstmt.setInt(2, nam);
@@ -141,5 +141,34 @@ public class access_BANGLUONG {
     }
     return bangLuongList;
     }
+     public static ArrayList<BANGLUONG> getBANGLUONG(int Thang, int Nam)
+    {
+        
+            ArrayList<BANGLUONG> al = new ArrayList<>();
 
+            String sql = "SELECT b.MABL, b.MANV, b.NAM, b.THANG, b.TONGTIENUL, b.LUONGTL, n.TENNV " +
+                       "FROM BANGLUONG b " +
+                       "JOIN NHANVIEN n ON b.MANV = n.MANV WHERE b.THANG=? AND b.NAM=?"; 
+            try(Connection con = Connect.connect();PreparedStatement statement = con.prepareStatement(sql)){
+                statement.setInt(1, Thang);
+                statement.setInt(2, Nam);
+                ResultSet rs= statement.executeQuery();
+                while (rs.next()) {
+                    BANGLUONG bangLuong = new BANGLUONG();
+                    bangLuong.setMaBL(rs.getInt("MABL"));
+                    bangLuong.setMaNV(rs.getInt("MANV"));
+                    bangLuong.setNam(rs.getInt("NAM"));
+                    bangLuong.setThang(rs.getInt("THANG"));
+                    bangLuong.setTongTienUL(rs.getLong("TONGTIENUL"));
+                    bangLuong.setLuongTL(rs.getLong("LUONGTL"));
+                    bangLuong.setTenNV(rs.getString("TENNV"));
+                    al.add(bangLuong);
+                }
+                con.close();
+                statement.close();
+                }catch(SQLException e1){
+                System.out.println("Loi"+ e1);
+            }
+            return al;
+        }
 }

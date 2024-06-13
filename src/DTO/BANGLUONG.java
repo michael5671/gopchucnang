@@ -95,4 +95,7 @@ public class BANGLUONG {
         DecimalFormat formatter = new DecimalFormat("#,###");
         return formatter.format(luongTL);
     }
+    public String getFormattedDate(){
+        return thang+"/"+nam;
+    }
 }
