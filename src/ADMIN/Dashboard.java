@@ -95,7 +95,7 @@ public class Dashboard extends javax.swing.JPanel {
         });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 350, 190, -1));
 
-        jButton4.setText("Tỉ lệ gửi yêu cầu");
+        jButton4.setText("Số lượng gửi yêu cầu");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -103,7 +103,7 @@ public class Dashboard extends javax.swing.JPanel {
         });
         add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 190, -1));
 
-        jButton5.setText("Số lương được chi trả");
+        jButton5.setText("Tổng tiền được chi trả");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);

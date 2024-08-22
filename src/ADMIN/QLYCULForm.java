@@ -91,9 +91,9 @@ public class QLYCULForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPheDuyet = new myButton();
+        btnPheDuyet = new Component.myButton();
         jLabel2 = new javax.swing.JLabel();
-        btnTuChoi = new myButton();
+        btnTuChoi = new Component.myButton();
         panelThongTinYC = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -111,9 +111,9 @@ public class QLYCULForm extends javax.swing.JPanel {
         txtSearchTenNV = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         cbTrangThai = new javax.swing.JComboBox<>();
-        btnSearch = new myButton();
-        scrollPaneWin111 = new ScrollPaneWin11();
-        tbDSYCUL = new myTable();
+        btnSearch = new Component.myButton();
+        scrollPaneWin111 = new Component.ScrollPaneWin11();
+        tbDSYCUL = new Component.myTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1055, 768));
@@ -209,7 +209,7 @@ public class QLYCULForm extends javax.swing.JPanel {
                                 .addComponent(lbTenNV, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                                 .addComponent(lbNgayGui, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbSoTienUng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         panelThongTinYCLayout.setVerticalGroup(
             panelThongTinYCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +238,7 @@ public class QLYCULForm extends javax.swing.JPanel {
         );
 
         pnTraCuuYCUL.setBackground(new java.awt.Color(255, 255, 255));
-        pnTraCuuYCUL.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 100), 3, true), "Tra cứu yêu cầu nghỉ phép", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
+        pnTraCuuYCUL.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 100), 3, true), "Tra cứu yêu cầu ứng lương", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("Tên nhân viên");
@@ -460,9 +460,9 @@ public class QLYCULForm extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDSYCULMouseClicked
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private myButton btnPheDuyet;
-    private myButton btnSearch;
-    private myButton btnTuChoi;
+    private Component.myButton btnPheDuyet;
+    private Component.myButton btnSearch;
+    private Component.myButton btnTuChoi;
     private javax.swing.JComboBox<String> cbTrangThai;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -479,8 +479,8 @@ public class QLYCULForm extends javax.swing.JPanel {
     private javax.swing.JLabel lbTrangThai;
     private javax.swing.JPanel panelThongTinYC;
     private javax.swing.JPanel pnTraCuuYCUL;
-    private ScrollPaneWin11 scrollPaneWin111;
-    private myTable tbDSYCUL;
+    private Component.ScrollPaneWin11 scrollPaneWin111;
+    private Component.myTable tbDSYCUL;
     private javax.swing.JTextPane txtGhiChu;
     private javax.swing.JTextField txtSearchTenNV;
     // End of variables declaration//GEN-END:variables

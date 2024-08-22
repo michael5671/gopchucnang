@@ -25,7 +25,7 @@ public class access_BANGLUONG {
         cstmt.setInt(2, bangLuong.getNam());
         cstmt.setInt(3, bangLuong.getThang());
         cstmt.setLong(4, bangLuong.getTongTienUL());
-        cstmt.setLong(5, bangLuong.getLuongTL());
+        cstmt.setDouble(5, bangLuong.getLuongTL());
         cstmt.execute();
         cstmt.close();
     }
@@ -54,15 +54,15 @@ public class access_BANGLUONG {
         return bangLuongList;
     }
  
-    public long[] getLuongCoBanVaHeSo(int maNV) throws SQLException {
+    public double[] getLuongCoBanVaHeSo(int maNV) throws SQLException {
         String query = "SELECT LUONGCB, HESO FROM NHANVIEN WHERE MANV = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, maNV);
         ResultSet rs = pstmt.executeQuery();
-        long[] result = new long[2];
+        double[] result = new double[2];
         if (rs.next()) {
             result[0] = rs.getLong("LUONGCB");
-            result[1] = rs.getLong("HESO");
+            result[1] = rs.getDouble("HESO");
         }
         rs.close();
         pstmt.close();
@@ -86,7 +86,7 @@ public class access_BANGLUONG {
     }
 
     public int getSoNgayCong(int maNV, int nam, int thang) throws SQLException {
-        String query = "SELECT COUNT(*) AS SONGAYCONG FROM BANGLUONG WHERE MANV = ? AND EXTRACT(YEAR FROM NGAYCC) = ? AND EXTRACT(MONTH FROM NGAYCC) = ?";
+        String query = "SELECT COUNT(*) AS SONGAYCONG FROM PHIEUCHAMCONG WHERE MANV = ? AND EXTRACT(YEAR FROM NGAYCC) = ? AND EXTRACT(MONTH FROM NGAYCC) = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, maNV);
         pstmt.setInt(2, nam);

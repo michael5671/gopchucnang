@@ -144,8 +144,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         DeleteButton = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        scrollpanel = new ScrollPaneWin11();
-        DsPB3 = new myTable();
+        scrollpanel = new Component.ScrollPaneWin11();
+        DsPB3 = new Component.myTable();
         Them = new javax.swing.JPanel();
         tenPB = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -161,8 +161,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
         Tim1 = new javax.swing.JButton();
-        scrollPaneWin111 = new ScrollPaneWin11();
-        DsPB = new myTable();
+        scrollPaneWin111 = new Component.ScrollPaneWin11();
+        DsPB = new Component.myTable();
         Xoa = new javax.swing.JPanel();
         tenPB2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -171,8 +171,8 @@ public class QLPBForm extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         submit1 = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
-        scrollPaneWin112 = new ScrollPaneWin11();
-        DsPB1 = new myTable();
+        scrollPaneWin112 = new Component.ScrollPaneWin11();
+        DsPB1 = new Component.myTable();
 
         jButton1.setText("jButton1");
 
@@ -254,7 +254,7 @@ public class QLPBForm extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Xem và sửa phòng ban");
+        jLabel5.setText("Sửa phòng ban");
 
         javax.swing.GroupLayout UpdateAndReadButtonLayout = new javax.swing.GroupLayout(UpdateAndReadButton);
         UpdateAndReadButton.setLayout(UpdateAndReadButtonLayout);
@@ -358,10 +358,10 @@ public class QLPBForm extends javax.swing.JPanel {
                 .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(UpdateAndReadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(UpdateAndReadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(996, Short.MAX_VALUE))
+                    .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addContainerGap(971, Short.MAX_VALUE))
         );
 
         Them.setBackground(new java.awt.Color(255, 255, 255));
@@ -905,9 +905,9 @@ public class QLPBForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Delete;
     private javax.swing.JPanel DeleteButton;
-    private myTable DsPB;
-    private myTable DsPB1;
-    private myTable DsPB3;
+    private Component.myTable DsPB;
+    private Component.myTable DsPB1;
+    private Component.myTable DsPB3;
     private javax.swing.JButton QuayLai;
     private javax.swing.JButton QuayLai1;
     private javax.swing.JButton QuayLai2;
@@ -936,9 +936,9 @@ public class QLPBForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menu;
-    private ScrollPaneWin11 scrollPaneWin111;
-    private ScrollPaneWin11 scrollPaneWin112;
-    private ScrollPaneWin11 scrollpanel;
+    private Component.ScrollPaneWin11 scrollPaneWin111;
+    private Component.ScrollPaneWin11 scrollPaneWin112;
+    private Component.ScrollPaneWin11 scrollpanel;
     private javax.swing.JButton submit;
     private javax.swing.JButton submit1;
     private javax.swing.JTextField tenPB;

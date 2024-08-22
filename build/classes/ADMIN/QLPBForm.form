@@ -171,9 +171,9 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="UpdateAndReadButton" pref="31" max="32767" attributes="0"/>
                       <Component id="DeleteButton" pref="31" max="32767" attributes="0"/>
-                      <Component id="addButton" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="addButton" alignment="1" pref="31" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="996" max="32767" attributes="0"/>
+                  <EmptySpace pref="971" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -264,7 +264,7 @@
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Xem v&#xe0; s&#x1eed;a ph&#xf2;ng ban"/>
+                <Property name="text" type="java.lang.String" value="S&#x1eed;a ph&#xf2;ng ban"/>
               </Properties>
             </Component>
           </SubComponents>

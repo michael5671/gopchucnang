@@ -46,7 +46,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
                     bangLuong.getNam(),
                     bangLuong.getThang(),
                     bangLuong.getTongTienUL(),
-                    bangLuong.getLuongTL(),
+                 
                     bangLuong.getFormattedLuongTL()
                 };
                 model.addRow(row);
@@ -197,7 +197,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Tìm kiếm bảng lương", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Tra cứu bảng lương", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -228,7 +228,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
         });
 
         find.setForeground(new java.awt.Color(255, 255, 255));
-        find.setText("TÌm bảng lương");
+        find.setText("Tìm kiếm");
         find.setColor(new java.awt.Color(0, 102, 0));
         find.setColorClick(new java.awt.Color(0, 153, 102));
         find.setColorOver(new java.awt.Color(0, 153, 51));
@@ -261,7 +261,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
                                     .addComponent(NamtxtField3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ThangtxtField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
+                        .addGap(146, 146, 146)
                         .addComponent(find, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -412,12 +412,12 @@ public class TinhLuongForm extends javax.swing.JPanel {
             int nam = currentDate.getYear();
             int thang = currentDate.getMonthValue();
 
-            long[] luongCoBanVaHeSo = bangLuongDAO.getLuongCoBanVaHeSo(maNV);
-            long luongCB = luongCoBanVaHeSo[0];
-            long heSo = luongCoBanVaHeSo[1];
+            double[] luongCoBanVaHeSo = bangLuongDAO.getLuongCoBanVaHeSo(maNV);
+            double luongCB = luongCoBanVaHeSo[0];
+            double heSo = luongCoBanVaHeSo[1];
 
             // Tính lương ngày
-            long luongNgay = (luongCB * heSo) / 25;
+            double luongNgay = (luongCB * heSo) / 25;
 
             // Lấy tổng tiền ứng lương đã duyệt của nhân viên trong tháng
             long tongTienUL = bangLuongDAO.getTongTienUL(maNV, nam, thang);
@@ -426,7 +426,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
             int soNgayCong = bangLuongDAO.getSoNgayCong(maNV, nam, thang);
 
             // Tính lương thực lãnh
-            long luongTL = (luongNgay * soNgayCong) - tongTienUL;
+            double luongTL = (luongNgay * soNgayCong) - tongTienUL;
 
             BANGLUONG bangLuong = new BANGLUONG();
             bangLuong.setMaNV(maNV);
@@ -504,12 +504,12 @@ public class TinhLuongForm extends javax.swing.JPanel {
             int nam = currentDate.getYear();
             int thang = currentDate.getMonthValue();
 
-            long[] luongCoBanVaHeSo = bangLuongDAO.getLuongCoBanVaHeSo(maNV);
-            long luongCB = luongCoBanVaHeSo[0];
-            long heSo = luongCoBanVaHeSo[1];
+            double[] luongCoBanVaHeSo = bangLuongDAO.getLuongCoBanVaHeSo(maNV);
+            double luongCB = luongCoBanVaHeSo[0];
+            double heSo = luongCoBanVaHeSo[1];
 
             // Tính lương ngày
-            long luongNgay = (luongCB * heSo) / 25;
+            double luongNgay = (luongCB * heSo) / 25;
 
             // Lấy tổng tiền ứng lương đã duyệt của nhân viên trong tháng
             long tongTienUL = bangLuongDAO.getTongTienUL(maNV, nam, thang);
@@ -518,7 +518,7 @@ public class TinhLuongForm extends javax.swing.JPanel {
             int soNgayCong = bangLuongDAO.getSoNgayCong(maNV, nam, thang);
 
             // Tính lương thực lãnh
-            long luongTL = (luongNgay * soNgayCong) - tongTienUL;
+            double luongTL = (luongNgay * soNgayCong) - tongTienUL;
 
             BANGLUONG bangLuong = new BANGLUONG();
             bangLuong.setMaNV(maNV);

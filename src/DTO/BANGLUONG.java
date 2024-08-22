@@ -4,6 +4,7 @@
  */
 package DTO;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -18,7 +19,7 @@ public class BANGLUONG {
     private int nam;
     private int thang;
     private long tongTienUL;
-    private long luongTL;
+    private double luongTL;
     private String tenNV;
 
     public BANGLUONG(int maBL, int maNV, int nam, int thang, long tongTienUL, long luongTL, String tenNV) {
@@ -74,11 +75,11 @@ public class BANGLUONG {
         this.tongTienUL = tongTienUL;
     }
 
-    public long getLuongTL() {
+    public double getLuongTL() {
         return luongTL;
     }
 
-    public void setLuongTL(long luongTL) {
+    public void setLuongTL(double luongTL) {
         this.luongTL = luongTL;
     }
 
@@ -89,11 +90,10 @@ public class BANGLUONG {
     public void setTenNV(String tenNV) {
         this.tenNV = tenNV;
     }
-    
-    
+      
     public String getFormattedLuongTL() {
-        DecimalFormat formatter = new DecimalFormat("#,###");
-        return formatter.format(luongTL);
+        BigDecimal luongTLBigDecimal = BigDecimal.valueOf(luongTL);
+        return luongTLBigDecimal.toPlainString();
     }
     public String getFormattedDate(){
         return thang+"/"+nam;
